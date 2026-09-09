@@ -4,7 +4,7 @@ title: Projects
 permalink: /projects/
 nav: true
 nav_order: 2
-description: Myungjin Song's autonomous driving and robotics projects
+description: Myungjin Song's autonomous driving and autonomous systems projects
 ---
 
 <div class="projects-page">

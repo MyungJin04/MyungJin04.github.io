@@ -37,7 +37,7 @@ XYCAR 플랫폼에서 카메라와 LiDAR를 활용한 환경 인식, 차선 기�
 ## Key Contributions
 
 - YOLO·OpenCV 기반 차선 인식 초기 구성
-- Camera–LiDAR 기반 장애물 인식 구조 구성
+- Camera–LiDAR 정보 결합 기반 장애물 인식 구조 구성
 - S자·라바콘 구간 반복 튜닝
 - rosbag 기반 실차 주행 실패 분석
 
@@ -51,7 +51,7 @@ YOLO를 기본 차선 인식에 사용했지만 S자 구간에서는 검출 결�
 
 ### Camera–LiDAR Association
 
-YOLO로 객체를 검출하고 LiDAR에서는 인접한 측정점을 묶어 물체 후보를 생성하였다. 초기에는 중간 측정점이 빠지면 cluster가 쉽게 끊기는 문제가 있어 짧은 beam 누락을 허용하도록 조건을 수정하였다. 카메라 객체 검출과 LiDAR cluster의 위치 관계를 함께 사용하였다.
+YOLO로 객체를 검출하고 LiDAR에서는 인접한 측정점을 묶어 물체 후보를 생성하였다. LiDAR 측정이 순간적으로 누락되더라도 cluster가 바로 끊어지지 않도록 clustering 조건을 완화하였다. 카메라 객체 검출과 LiDAR cluster의 위치 관계를 함께 사용하였다.
 
 ### Cone Course
 

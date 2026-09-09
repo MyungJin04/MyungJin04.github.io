@@ -17,7 +17,7 @@ layout: default
         <div><dt>Period</dt><dd>{{ page.period }}</dd></div>
         <div><dt>Team</dt><dd>{{ page.team }}</dd></div>
         {% if page.last_updated %}<div><dt>Last updated</dt><dd>{{ page.last_updated }}</dd></div>{% endif %}
-        {% if page.environment and page.environment.size > 0 %}<div><dt>Environment</dt><dd>{{ page.environment | join: ' · ' }}</dd></div>{% endif %}
+        {% if page.environment and page.environment.size > 0 %}<div><dt>{{ page.environment_label | default: 'Environment' }}</dt><dd>{{ page.environment | join: ' · ' }}</dd></div>{% endif %}
       </dl>
 
       {% if page.results and page.results.size > 0 %}

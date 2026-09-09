@@ -2,7 +2,7 @@
 layout: project
 title: CARLA 환경에서 Rule-based·모방학습·Hybrid 자율주행 비교
 subtitle: Rule-based, 모방학습, Hybrid 주행을 동일한 CARLA 환경에서 구현하고 기존 환경과 낯선 환경에서의 주행 결과를 비교하였다.
-description: Rule-based, Imitation Learning, Hybrid 주행을 동일한 CARLA 환경에서 구현하고 기존 환경과 처음 보는 환경의 성능을 비교하였다.
+description: Rule-based, Imitation Learning, Hybrid 주행을 동일한 CARLA 환경에서 구현하고 기존 환경과 낯선 환경의 성능을 비교하였다.
 importance: 1
 year: 2026
 selected: true
@@ -59,7 +59,7 @@ Waypoint 기반 전역 경로 추종에는 Pure Pursuit을 사용하였다. 일�
 
 ### Hybrid Driving
 
-Hybrid 방식에서는 Imitation Learning이 기본 주행을 담당하고, Rule-based planner가 background에서 기준 경로를 계속 생성하도록 구성하였다. Imitation Learning이 향하는 경로와 Rule-based reference 사이의 차이가 일정 범위보다 커지면 Rule-based 주행으로 전환하고, 두 경로의 차이가 다시 줄어들면 Imitation Learning으로 복귀하도록 하였다. Rule-based planner는 reference와 fallback으로 활용하였다.
+Hybrid 방식에서는 Imitation Learning이 기본 주행을 담당하고, Rule-based planner도 동시에 기준 경로를 계속 생성하도록 구성하였다. Imitation Learning이 향하는 경로와 Rule-based reference 사이의 차이가 일정 범위보다 커지면 Rule-based 주행으로 전환하고, 두 경로의 차이가 다시 줄어들면 Imitation Learning으로 복귀하도록 하였다. Rule-based planner는 reference와 fallback으로 활용하였다.
 
 ## Results
 

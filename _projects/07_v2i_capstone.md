@@ -13,7 +13,8 @@ period: 2026.09–2026.12
 team: 5인
 status: Ongoing
 last_updated: Sep. 2026
-environment: [1/5 Scale Autonomous Vehicle · 예정]
+environment_label: Planned Platform
+environment: [1/5 Scale Autonomous Vehicle]
 languages: []
 card_tags: [V2I, E2E Driving, Safety Evaluation]
 technologies: [V2I, E2E Driving, Occlusion, Safety Evaluation]
@@ -54,18 +55,18 @@ resources: []
 - 보행자 최초 인지 시점
 - 제동 시작 시점
 - 최소 보행자 거리
-- TTC
+- TTC (Time-to-Collision)
 - 정지 성공률
 
 ## E2E Direction
 
 팀 전체의 최종 방향은 E2E 주행으로 정하였다. 차량 자체 센서 정보와 V2I를 통해 받은 사각지대 정보를 차량의 판단과 제어에 활용하는 구조를 목표로 한다.
 
-현재 Infrastructure sensor, V2I 통신 방식, E2E 모델 구조와 입출력은 설계 중이다.
+현재 인프라 센서, V2I 통신 방식, E2E 모델 구조와 입출력은 설계 중이다.
 
 ## Next Steps
 
-- Infrastructure sensor 선정
+- 인프라 센서 선정
 - V2I로 전달할 정보 정의
 - Vehicle-only baseline 구성
 - V2I-assisted E2E 구조 구현
