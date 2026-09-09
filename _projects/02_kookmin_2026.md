@@ -31,7 +31,7 @@ XYCAR 플랫폼에서 카메라와 LiDAR를 활용한 환경 인식, 차선 기�
 
 <figure class="project-media">
   {% include project_video.liquid src="/assets/video/projects/kookmin/kookmin_demo.mp4" poster="/assets/img/projects/kookmin/kookmin_poster.webp" aria_label="2026 Kookmin University autonomous driving competition run montage" %}
-  <figcaption>대회 방송의 팀 주행 구간에서 일반 차선, 라바콘, 후반 미션 장면을 발췌하였다. <a href="https://www.youtube.com/watch?v=CcfXS3UFL0A&t=17782s" target="_blank" rel="noopener noreferrer">Competition Run ↗</a></figcaption>
+  <figcaption>2026 Kookmin Autonomous Driving Competition. <a href="https://www.youtube.com/watch?v=CcfXS3UFL0A&t=17782s" target="_blank" rel="noopener noreferrer">Competition Run ↗</a></figcaption>
 </figure>
 
 ## Key Contributions

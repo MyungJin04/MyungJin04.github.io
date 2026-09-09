@@ -32,7 +32,7 @@ MORAI Simulator의 IONIQ 5 차량으로 운전면허시험 코스와 일반 도�
 
 <figure class="project-media">
   {% include project_video.liquid src="/assets/video/projects/hlfma_2025/hlfma_2025_demo.mp4" poster="/assets/img/projects/hlfma_2025/hlfma_2025_poster.webp" aria_label="MORAI and RViz waypoint tracking clip" %}
-  <figcaption>MORAI·RViz waypoint 추종 장면. 같은 팀에서 사용하던 자료를 사용 허락을 받아 별도 편집하였다.</figcaption>
+  <figcaption>MORAI simulation run.</figcaption>
 </figure>
 
 ## Driving System

@@ -12,6 +12,7 @@ type: Course · 스마트운행체설계프로젝트
 period: 2026.09–2026.12
 team: 5인
 status: Ongoing
+last_updated: Sep. 2026
 environment: [1/5 Scale Autonomous Vehicle · 예정]
 languages: []
 card_tags: [V2I, E2E Driving, Safety Evaluation]

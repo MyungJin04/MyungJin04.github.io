@@ -12,11 +12,11 @@ cv_pdf:
   <h2 id="about-me-heading">About Me</h2>
   <div class="about-copy" markdown="1">
 
-안녕하세요. 건국대학교 스마트운행체공학과에 재학 중인 송명진입니다.
+Hi, I’m Myungjin Song, an undergraduate student in Smart Vehicle Engineering at Konkuk University. Most of my hands-on work so far has been in autonomous driving. I have worked with MORAI and CARLA simulators, an XYCAR platform, a 1/5-scale autonomous vehicle, and a ROS2/Gazebo ground-vehicle–drone project. Across these projects, I have worked on waypoint tracking, obstacle avoidance, camera–LiDAR perception, mission logic, and imitation-learning-based driving.
 
-자율주행 대회와 수업 프로젝트를 통해 MORAI·CARLA 시뮬레이션, XYCAR 실차, 1/5 스케일 차량, ROS2 기반 차량–드론 시스템 등을 경험했습니다. 그 과정에서 경로 추종과 장애물 회피, 카메라·LiDAR 기반 인식, 모방학습 기반 주행 등을 직접 적용해봤습니다.
+One experience that shaped my interests was comparing rule-based, imitation-learning, and hybrid driving in CARLA. A method that worked in a familiar environment behaved very differently when obstacle layouts changed. Later, during a real-vehicle competition, I spent a large part of the testing process replaying rosbag logs to trace failures across perception, mission logic, and control. These experiences made me increasingly interested not only in making an autonomous system work, but also in understanding when and why it fails.
 
-특히 주행이 실패했을 때 rosbag이나 실험 결과를 보면서 어디서 문제가 시작됐는지 찾고, 수정한 뒤 다시 주행해보는 과정에 흥미를 느꼈습니다. 최근에는 학습 기반 자율주행과 다양한 환경에서의 안전성 평가에 관심을 넓히고 있으며, 모바일 로봇을 포함한 자율 시스템 전반을 더 경험해보고 싶습니다.
+I am currently interested in learning-based decision and control, multimodal perception, and the evaluation of autonomous systems under changing or unseen conditions. Although most of my projects have been vehicle-centered, I would like to extend this experience toward broader robotic systems and gain research experience in learning-based autonomy and reliable real-world behavior.
 
   </div>
 </section>
@@ -25,20 +25,20 @@ cv_pdf:
   <h2 id="research-interests-heading">Research Interests</h2>
   <div class="interest-grid">
     <article class="interest-card">
-      <h3>Autonomous Driving &amp; Mobile Robotics</h3>
-      <p>자율주행 차량 및 다양한 모바일 로봇 시스템</p>
+      <h3>Autonomous Driving &amp; Robotic Systems</h3>
+      <p>Vehicle autonomy and robotic systems operating in real-world environments</p>
     </article>
     <article class="interest-card">
-      <h3>Perception, Planning &amp; Decision-Making</h3>
-      <p>환경 인식부터 경로 계획과 행동 결정까지의 자율 시스템 구성</p>
+      <h3>Perception &amp; Multimodal Sensor Fusion</h3>
+      <p>Vision and multi-sensor perception for reliable environment understanding</p>
     </article>
     <article class="interest-card">
-      <h3>Learning-based Autonomous Systems</h3>
-      <p>Imitation Learning, E2E 등 학습 기반 판단 및 제어</p>
+      <h3>Learning-based Decision &amp; Control</h3>
+      <p>Learning-based policies for planning, decision-making, and control</p>
     </article>
     <article class="interest-card">
-      <h3>Simulation &amp; Safety Evaluation</h3>
-      <p>다양한 조건의 반복 실험, 실패 분석, 자율 시스템의 안전성 평가</p>
+      <h3>Simulation, Generalization &amp; Safety Evaluation</h3>
+      <p>Closed-loop evaluation, failure analysis, and behavior under unseen conditions</p>
     </article>
   </div>
 </section>
