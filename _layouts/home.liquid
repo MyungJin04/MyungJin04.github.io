@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<div class="portfolio-home">
+  <header class="portfolio-hero{% if page.profile_image %} has-profile{% endif %}">
+    <div class="portfolio-hero__body">
+      <h1>{{ site.first_name }} {{ site.last_name }}</h1>
+      <p class="portfolio-hero__affiliation">
+        Undergraduate Student<br>
+        Department of Smart Vehicle Engineering<br>
+        Konkuk University
+      </p>
+      <div class="portfolio-actions" aria-label="Contact">
+        <a class="portfolio-button portfolio-button--primary" href="mailto:noori707070@konkuk.ac.kr">Email</a>
+        {% if page.cv_pdf %}<a class="portfolio-button" href="{{ page.cv_pdf | relative_url }}">CV PDF</a>{% endif %}
+      </div>
+    </div>
+
+    {% if page.profile_image %}
+      <figure class="portfolio-hero__profile">
+        <img src="{{ page.profile_image | relative_url }}" alt="{{ page.profile_image_alt | default: 'Myungjin Song' }}" width="400" height="500" decoding="async" fetchpriority="high">
+      </figure>
+    {% endif %}
+  </header>
+
+  <article class="portfolio-content">
+    {{ content }}
+  </article>
+</div>

@@ -1,0 +1,60 @@
+---
+layout: default
+---
+<div class="post project-detail">
+  <a class="project-back" href="{{ '/projects/' | relative_url }}" aria-label="Back to Projects">← Projects</a>
+
+  <header class="project-header">
+    <div class="project-header__copy">
+      <div class="project-kicker">
+        <span>{{ page.type }}</span>
+        {% if page.status %}<span class="status-badge{% if page.status == 'Ongoing' %} status-badge--ongoing{% endif %}">{{ page.status }}</span>{% endif %}
+      </div>
+      <h1>{{ page.title }}</h1>
+      {% if page.subtitle %}<p class="project-subtitle">{{ page.subtitle }}</p>{% endif %}
+
+      <dl class="project-meta">
+        <div><dt>Period</dt><dd>{{ page.period }}</dd></div>
+        <div><dt>Team</dt><dd>{{ page.team }}</dd></div>
+        {% if page.environment and page.environment.size > 0 %}<div><dt>Environment</dt><dd>{{ page.environment | join: ' · ' }}</dd></div>{% endif %}
+      </dl>
+
+      {% if page.results and page.results.size > 0 %}
+        <div class="result-badges" aria-label="Project results">
+          {% for result in page.results %}<span class="result-badge">{{ result }}</span>{% endfor %}
+        </div>
+      {% endif %}
+
+      {% include tag_list.liquid tags=page.technologies %}
+    </div>
+
+    {% if page.image %}
+      <figure class="project-header__image">
+        <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}">
+      </figure>
+    {% endif %}
+  </header>
+
+  <article class="project-body">
+    {{ content }}
+  </article>
+
+  {% if page.resources and page.resources.size > 0 %}
+    <section class="project-resources" aria-labelledby="resources-heading">
+      <h2 id="resources-heading">Resources</h2>
+      <ul>
+        {% for resource in page.resources %}
+          <li>
+            {% if resource.url contains '://' %}
+              <a href="{{ resource.url }}">{{ resource.label }}</a>
+            {% else %}
+              <a href="{{ resource.url | relative_url }}">{{ resource.label }}</a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+</div>
+
+<script src="{{ '/assets/js/project-media.js' | relative_url }}" defer></script>

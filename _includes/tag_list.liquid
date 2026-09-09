@@ -1,0 +1,6 @@
+{% if include.tags and include.tags.size > 0 %}
+  <ul class="tag-list" aria-label="Technologies">
+    {% for tag in include.tags %}<li>{{ tag }}</li>{% endfor %}
+  </ul>
+{% endif %}
+

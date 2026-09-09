@@ -1,0 +1,36 @@
+_site
+.bundle
+.DS_store
+.idea
+.jekyll-cache
+.jekyll-metadata
+.ruby-version
+.sass-cache
+.tweet-cache
+.venv
+assets/libs/
+assets/rendercv/rendercv_output/*.typ
+al-folio-upgrade-report.md
+node_modules/
+output/playwright/
+test-results/
+vendor
+
+# Local ROS build and experiment artifacts are not part of the generated site.
+/build/
+/install/
+/log/
+/.pytest_cache/
+
+# Robotics source trees and experiment exports share this local workspace but
+# are not inputs to the portfolio site. Keep them out of the Pages repository.
+/src/
+/analysis/
+/analysis_outputs/
+
+# Local Codex workspace instructions are not website source.
+/AGENTS.md
+
+# Python bytecode from bin/ helper scripts
+__pycache__/
+*.pyc

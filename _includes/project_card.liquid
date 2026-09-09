@@ -1,0 +1,23 @@
+{% assign project = include.project %}
+<article class="project-card">
+  {% if project.thumbnail %}
+    <a class="project-card__media" href="{{ project.url | relative_url }}" tabindex="-1" aria-hidden="true">
+      <img src="{{ project.thumbnail | relative_url }}" alt="" loading="lazy">
+    </a>
+  {% endif %}
+  <div class="project-card__body">
+    <div class="project-card__meta">
+      <span>{{ project.period }}</span>
+      {% if project.status %}<span class="status-badge{% if project.status == 'Ongoing' %} status-badge--ongoing{% endif %}">{{ project.status }}</span>{% endif %}
+    </div>
+    <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+    <p>{{ project.description }}</p>
+    {% if project.results and project.results.size > 0 %}
+      <div class="result-badges" aria-label="Project results">
+        {% for result in project.results %}<span class="result-badge">{{ result }}</span>{% endfor %}
+      </div>
+    {% endif %}
+    {% include tag_list.liquid tags=project.card_tags %}
+    <a class="project-card__link" href="{{ project.url | relative_url }}" aria-label="View {{ project.title }} project details">View project <span aria-hidden="true">→</span></a>
+  </div>
+</article>

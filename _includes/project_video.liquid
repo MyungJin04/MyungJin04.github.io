@@ -1,0 +1,14 @@
+<video
+  class="project-media__video js-lazy-video"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="none"
+  poster="{{ include.poster | relative_url }}"
+  width="960"
+  height="540"
+  aria-label="{{ include.aria_label }}"
+>
+  <source data-src="{{ include.src | relative_url }}" type="video/mp4">
+</video>

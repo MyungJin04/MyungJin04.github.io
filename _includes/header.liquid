@@ -1,0 +1,13 @@
+<header class="portfolio-site-header">
+  <nav class="portfolio-site-nav" aria-label="Primary navigation">
+    <a class="portfolio-site-brand" href="{{ '/' | relative_url }}"><strong>Myungjin</strong> Song</a>
+    <ul>
+      <li>
+        <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>About</a>
+      </li>
+      <li>
+        <a href="{{ '/projects/' | relative_url }}"{% if page.url contains '/projects/' %} aria-current="page"{% endif %}>Projects</a>
+      </li>
+    </ul>
+  </nav>
+</header>
