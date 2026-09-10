@@ -613,6 +613,246 @@ body {
   }
 }
 
+// CARLA research-story pages. These selectors are intentionally project-specific.
+.carla-story-nav {
+  border-bottom: 1px solid $portfolio-line;
+  display: flex;
+  gap: 0.2rem;
+  margin: 1.35rem auto 0;
+  max-width: 46rem;
+  overflow-x: auto;
+  padding: 0 0 0.7rem;
+  scrollbar-width: thin;
+
+  a {
+    align-items: baseline;
+    border-radius: 0.25rem;
+    color: $portfolio-muted;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 0.28rem;
+    padding: 0.42rem 0.58rem;
+    text-decoration: none !important;
+
+    &:hover,
+    &:focus-visible,
+    &[aria-current="page"] {
+      background: $portfolio-accent-soft;
+      color: $portfolio-accent;
+    }
+
+    &[aria-current="page"] {
+      font-weight: 600;
+    }
+
+    small {
+      font-size: 0.64rem;
+      letter-spacing: 0.06em;
+    }
+
+    span {
+      font-size: 0.76rem;
+      white-space: nowrap;
+    }
+  }
+}
+
+.carla-question-grid,
+.carla-figure-grid,
+.carla-chapter-grid,
+.carla-approach-grid,
+.carla-state-grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 1.35rem 0 1.8rem;
+}
+
+.carla-question,
+.carla-approach,
+.carla-state,
+.carla-callout {
+  border: 1px solid $portfolio-line;
+  border-radius: 0.3rem;
+  padding: 1.05rem 1.1rem;
+
+  small {
+    color: $portfolio-accent;
+    display: block;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.42rem;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.carla-question {
+  border-top: 2px solid $portfolio-accent;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.carla-approach,
+.carla-state {
+  h3 {
+    margin: 0 0 0.38rem;
+  }
+
+  p {
+    color: $portfolio-muted;
+    font-size: 0.84rem;
+    line-height: 1.65;
+  }
+}
+
+.carla-chapter-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.carla-chapter-card {
+  border: 1px solid $portfolio-line;
+  border-radius: 0.35rem;
+  color: $portfolio-ink !important;
+  min-height: 10.2rem;
+  padding: 1.15rem;
+  text-decoration: none !important;
+
+  &:hover,
+  &:focus-visible {
+    border-color: $portfolio-accent;
+  }
+
+  small {
+    color: $portfolio-accent;
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.65rem;
+  }
+
+  strong {
+    display: block;
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  p {
+    color: $portfolio-muted;
+    font-size: 0.82rem;
+    line-height: 1.65;
+    margin: 0.55rem 0 0.75rem;
+  }
+
+  b {
+    color: $portfolio-accent;
+    font-weight: 500;
+  }
+}
+
+.carla-callout {
+  background: $portfolio-soft;
+  border-left: 3px solid $portfolio-accent;
+  margin: 1.45rem 0 1.9rem;
+
+  h3 {
+    font-size: 1rem;
+    margin: 0 0 0.55rem;
+  }
+
+  p + p {
+    margin-top: 0.7rem;
+  }
+}
+
+.carla-callout--plain {
+  background: #fff;
+}
+
+.carla-figure-grid {
+  figure {
+    margin: 0;
+  }
+
+  img {
+    border: 1px solid $portfolio-line;
+    border-radius: 0.3rem;
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
+  figcaption {
+    color: $portfolio-muted;
+    font-size: 0.76rem;
+    line-height: 1.55;
+    margin-top: 0.45rem;
+  }
+}
+
+.carla-metric-note {
+  color: $portfolio-muted;
+  font-size: 0.84rem;
+  line-height: 1.7;
+  margin: -0.8rem 0 1.7rem;
+}
+
+.concept-label {
+  color: $portfolio-accent;
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.45rem;
+  text-transform: uppercase;
+}
+
+.chapter-pagination {
+  border-top: 1px solid $portfolio-line;
+  display: flex;
+  justify-content: space-between;
+  margin: 3.5rem auto 4rem;
+  max-width: 46rem;
+  padding-top: 1.2rem;
+
+  a {
+    color: $portfolio-ink;
+    display: flex;
+    flex-direction: column;
+    max-width: 46%;
+    text-decoration: none !important;
+
+    &:hover span,
+    &:focus-visible span {
+      color: $portfolio-accent;
+    }
+  }
+
+  small {
+    color: $portfolio-muted;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+  }
+
+  span {
+    font-size: 0.86rem;
+    font-weight: 600;
+    line-height: 1.45;
+  }
+}
+
+.chapter-pagination__next {
+  margin-left: auto;
+  text-align: right;
+}
+
 @media (max-width: 760px) {
   .portfolio-hero,
   .portfolio-hero.has-profile,
@@ -630,8 +870,17 @@ body {
   }
 
   .interest-grid,
-  .project-grid {
+  .project-grid,
+  .carla-question-grid,
+  .carla-figure-grid,
+  .carla-chapter-grid,
+  .carla-approach-grid,
+  .carla-state-grid {
     grid-template-columns: 1fr;
+  }
+
+  .carla-chapter-card {
+    min-height: 0;
   }
 
 }

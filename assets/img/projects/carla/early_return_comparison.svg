@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" role="img" aria-labelledby="title desc">
+  <title id="title">Early return logic before and after tracking</title>
+  <desc id="desc">The former logic returned when the obstacle disappeared from camera view. The revised logic tracked the obstacle relative to the ego vehicle and returned only after it passed behind.</desc>
+  <defs>
+    <marker id="arrow-before" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#a35c42"/></marker>
+    <marker id="arrow-after" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#245a73"/></marker>
+  </defs>
+  <rect width="960" height="430" fill="#ffffff"/>
+  <g font-family="Inter, Noto Sans KR, Arial, sans-serif">
+    <rect x="30" y="35" width="435" height="350" rx="8" fill="#fffaf8" stroke="#e2cfc7"/>
+    <text x="55" y="76" fill="#8b4d37" font-size="15" font-weight="700" letter-spacing="1.4">BEFORE</text>
+    <text x="55" y="105" fill="#18212b" font-size="21" font-weight="600">Camera visibility only</text>
+    <g text-anchor="middle">
+      <rect x="75" y="135" width="345" height="54" rx="6" fill="#ffffff" stroke="#e2cfc7"/>
+      <text x="247" y="169" fill="#18212b" font-size="16">Obstacle disappears from camera</text>
+      <rect x="75" y="225" width="345" height="54" rx="6" fill="#ffffff" stroke="#e2cfc7"/>
+      <text x="247" y="259" fill="#18212b" font-size="16">Assume avoidance complete</text>
+      <rect x="75" y="315" width="345" height="46" rx="6" fill="#f7e9e4" stroke="#c98f79"/>
+      <text x="247" y="344" fill="#8b4d37" font-size="16" font-weight="600">Return too early</text>
+    </g>
+    <path d="M247 189V215" stroke="#a35c42" stroke-width="2" marker-end="url(#arrow-before)"/>
+    <path d="M247 279V305" stroke="#a35c42" stroke-width="2" marker-end="url(#arrow-before)"/>
+
+    <rect x="495" y="35" width="435" height="350" rx="8" fill="#f7fbfc" stroke="#b9ccd5"/>
+    <text x="520" y="76" fill="#245a73" font-size="15" font-weight="700" letter-spacing="1.4">AFTER</text>
+    <text x="520" y="105" fill="#18212b" font-size="21" font-weight="600">Tracked relative position</text>
+    <g text-anchor="middle">
+      <rect x="540" y="135" width="345" height="54" rx="6" fill="#ffffff" stroke="#b9ccd5"/>
+      <text x="712" y="169" fill="#18212b" font-size="16">track_id + ego-relative position</text>
+      <rect x="540" y="225" width="345" height="54" rx="6" fill="#ffffff" stroke="#b9ccd5"/>
+      <text x="712" y="259" fill="#18212b" font-size="16">Confirm obstacle passed behind</text>
+      <rect x="540" y="315" width="345" height="46" rx="6" fill="#eaf2f5" stroke="#7296a7"/>
+      <text x="712" y="344" fill="#245a73" font-size="16" font-weight="600">Return to waypoint</text>
+    </g>
+    <path d="M712 189V215" stroke="#245a73" stroke-width="2" marker-end="url(#arrow-after)"/>
+    <path d="M712 279V305" stroke="#245a73" stroke-width="2" marker-end="url(#arrow-after)"/>
+  </g>
+</svg>

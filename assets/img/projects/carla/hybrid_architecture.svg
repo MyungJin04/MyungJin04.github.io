@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" role="img" aria-labelledby="title desc">
+  <title id="title">Hybrid driving architecture</title>
+  <desc id="desc">An imitation policy predicts driving while a rule-based planner continuously creates a reference. Their difference determines whether imitation control or rule-based fallback is used.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#245a73"/></marker>
+  </defs>
+  <rect width="960" height="500" fill="#ffffff"/>
+  <g font-family="Inter, Noto Sans KR, Arial, sans-serif">
+    <text x="45" y="55" fill="#18212b" font-size="25" font-weight="600">Hybrid driving architecture</text>
+    <text x="45" y="83" fill="#5d6772" font-size="15">Both paths are generated concurrently; the recorded switching threshold is not specified.</text>
+    <rect x="55" y="125" width="330" height="95" rx="7" fill="#eaf2f5" stroke="#b9ccd5"/>
+    <text x="220" y="164" fill="#18212b" font-size="20" font-weight="600" text-anchor="middle">Imitation Policy</text>
+    <text x="220" y="193" fill="#5d6772" font-size="15" text-anchor="middle">predicted driving</text>
+    <rect x="575" y="125" width="330" height="95" rx="7" fill="#f5f7f8" stroke="#dce2e7"/>
+    <text x="740" y="164" fill="#18212b" font-size="20" font-weight="600" text-anchor="middle">Rule-based Planner</text>
+    <text x="740" y="193" fill="#5d6772" font-size="15" text-anchor="middle">continuously generated reference</text>
+    <rect x="350" y="265" width="260" height="82" rx="41" fill="#ffffff" stroke="#245a73" stroke-width="2"/>
+    <text x="480" y="297" fill="#245a73" font-size="15" font-weight="700" text-anchor="middle" letter-spacing="1">COMPARE</text>
+    <text x="480" y="323" fill="#18212b" font-size="16" text-anchor="middle">difference from reference</text>
+    <rect x="75" y="395" width="340" height="70" rx="7" fill="#245a73"/>
+    <text x="245" y="424" fill="#ffffff" font-size="18" font-weight="600" text-anchor="middle">Difference within criterion</text>
+    <text x="245" y="449" fill="#ffffff" font-size="15" text-anchor="middle">Imitation control</text>
+    <rect x="545" y="395" width="340" height="70" rx="7" fill="#f5f7f8" stroke="#b9ccd5"/>
+    <text x="715" y="424" fill="#18212b" font-size="18" font-weight="600" text-anchor="middle">Difference exceeds criterion</text>
+    <text x="715" y="449" fill="#245a73" font-size="15" text-anchor="middle">Rule-based fallback</text>
+    <path d="M220 220V243Q220 255 238 265H340" fill="none" stroke="#245a73" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M740 220V243Q740 255 722 265H620" fill="none" stroke="#245a73" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M430 347V370Q430 382 410 395" fill="none" stroke="#245a73" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M530 347V370Q530 382 550 395" fill="none" stroke="#245a73" stroke-width="2" marker-end="url(#arrow)"/>
+  </g>
+</svg>

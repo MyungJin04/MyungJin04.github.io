@@ -1,0 +1,24 @@
+{% assign carla_current = include.current | default: page.chapter_key %}
+<nav class="carla-story-nav" aria-label="CARLA project chapters">
+  <a href="{{ '/projects/01-carla-hybrid/' | relative_url }}"{% if carla_current == 'overview' %} aria-current="page"{% endif %}>
+    <span>Overview</span>
+  </a>
+  <a href="{{ '/projects/01-carla-hybrid/rule-based-baseline/' | relative_url }}"{% if carla_current == 'rule-based' %} aria-current="page"{% endif %}>
+    <small>01</small><span>Rule-based</span>
+  </a>
+  <a href="{{ '/projects/01-carla-hybrid/imitation-learning/' | relative_url }}"{% if carla_current == 'imitation' %} aria-current="page"{% endif %}>
+    <small>02</small><span>Imitation</span>
+  </a>
+  <a href="{{ '/projects/01-carla-hybrid/hybrid-approach/' | relative_url }}"{% if carla_current == 'hybrid' %} aria-current="page"{% endif %}>
+    <small>03</small><span>Hybrid</span>
+  </a>
+  <a href="{{ '/projects/01-carla-hybrid/unseen-evaluation/' | relative_url }}"{% if carla_current == 'evaluation' %} aria-current="page"{% endif %}>
+    <small>04</small><span>Evaluation</span>
+  </a>
+  <a href="{{ '/projects/01-carla-hybrid/failure-analysis/' | relative_url }}"{% if carla_current == 'failure' %} aria-current="page"{% endif %}>
+    <small>05</small><span>Failures</span>
+  </a>
+  <a href="{{ '/projects/01-carla-hybrid/question-evolution/' | relative_url }}"{% if carla_current == 'questions' %} aria-current="page"{% endif %}>
+    <small>06</small><span>What followed</span>
+  </a>
+</nav>

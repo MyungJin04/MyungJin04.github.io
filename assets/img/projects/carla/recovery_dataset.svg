@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 410" role="img" aria-labelledby="title desc">
+  <title id="title">Recovery dataset composition</title>
+  <desc id="desc">Yaw error, lateral deviation, and return-to-center trajectories make up 54,000 added recovery images.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#245a73"/></marker>
+  </defs>
+  <rect width="960" height="410" fill="#ffffff"/>
+  <g font-family="Inter, Noto Sans KR, Arial, sans-serif">
+    <text x="45" y="55" fill="#18212b" font-size="25" font-weight="600">Recovery dataset composition</text>
+    <text x="45" y="83" fill="#5d6772" font-size="15">Recovery behavior had to be demonstrated, not inferred from normal driving alone.</text>
+    <g text-anchor="middle">
+      <rect x="45" y="128" width="210" height="95" rx="7" fill="#f5f7f8" stroke="#dce2e7"/>
+      <text x="150" y="167" fill="#18212b" font-size="18" font-weight="600">Yaw error</text>
+      <text x="150" y="194" fill="#5d6772" font-size="14">heading deviation</text>
+      <rect x="285" y="128" width="210" height="95" rx="7" fill="#f5f7f8" stroke="#dce2e7"/>
+      <text x="390" y="167" fill="#18212b" font-size="18" font-weight="600">Lateral deviation</text>
+      <text x="390" y="194" fill="#5d6772" font-size="14">off-center positions</text>
+      <rect x="525" y="128" width="210" height="95" rx="7" fill="#f5f7f8" stroke="#dce2e7"/>
+      <text x="630" y="167" fill="#18212b" font-size="18" font-weight="600">Return trajectory</text>
+      <text x="630" y="194" fill="#5d6772" font-size="14">steering back to center</text>
+      <rect x="765" y="128" width="150" height="95" rx="7" fill="#eaf2f5" stroke="#b9ccd5"/>
+      <text x="840" y="160" fill="#245a73" font-size="14" font-weight="700">ADDED</text>
+      <text x="840" y="189" fill="#18212b" font-size="23" font-weight="700">54,000</text>
+      <text x="840" y="210" fill="#5d6772" font-size="13">images</text>
+      <rect x="300" y="285" width="360" height="70" rx="7" fill="#245a73"/>
+      <text x="480" y="316" fill="#ffffff" font-size="19" font-weight="600">Demonstrated recovery behavior</text>
+      <text x="480" y="340" fill="#ffffff" font-size="14">deviation → correction → normal driving</text>
+    </g>
+    <path d="M150 223V250H480V275" fill="none" stroke="#245a73" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M390 223V250" stroke="#245a73" stroke-width="2"/>
+    <path d="M630 223V250" stroke="#245a73" stroke-width="2"/>
+    <path d="M840 223V250H480" fill="none" stroke="#245a73" stroke-width="2"/>
+  </g>
+</svg>
