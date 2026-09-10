@@ -1,91 +1,93 @@
 ---
 layout: project
-title: 2026 국민대학교 자율주행 경진대회
-subtitle: 실차 자율주행 시스템 개발 및 주행 실패 분석
-description: XYCAR에서 카메라와 LiDAR 인식, 차선 경로 생성, 차량 제어와 여러 미션을 하나의 실차 시스템으로 통합하였다.
+title: "When Simulation Wasn't Enough: Debugging a Real Autonomous Driving Stack"
+display_title: "When Simulation Wasn't Enough:<br>Debugging a Real Autonomous Driving Stack"
+subtitle: 2026 국민대학교 자율주행 경진대회에서 인지·판단·제어 failure를 분석하고 개선한 과정
+description: 실차 자율주행 stack을 통합하고 rosbag으로 인지·판단·제어 failure를 추적해 전 코스를 완주한 프로젝트.
 importance: 2
 year: 2026
 selected: true
 current_featured: false
 categories: [competition]
 type: Competition
-period: 2026.07–2026.08
-team: 5인
+period: Jul. 2026 – Aug. 2026
+team: 5-person team
 status: Completed
-environment: [XYCAR, ROS2]
+environment: [XYCAR, ROS2, Python, C++]
 languages: [Python, C++]
 card_tags: [YOLO, LiDAR, rosbag]
-technologies: [ROS2, YOLO, OpenCV, LiDAR, Stanley, rosbag]
+technologies: [ROS2, YOLO, OpenCV, LiDAR, Stanley, Pure Pursuit, rosbag]
 results:
-  - 114팀 중 7위
-  - 전 코스 완주
+  - 7th / 114 teams
+  - Full-course completion
 thumbnail:
 image:
 image_alt:
 resources: []
 ---
 
-## Overview
+{% include kookmin_chapter_nav.liquid current="overview" %}
 
-XYCAR 플랫폼에서 카메라와 LiDAR를 활용한 환경 인식, 차선 기반 경로 생성, 차량 제어, 라바콘·장애물·신호등 등 여러 미션을 하나의 실차 자율주행 시스템으로 통합하였다.
+## Project Overview
 
+초기 simulation과 실내 테스트에서 동작하던 모듈을 XYCAR 실차에 연결하자 조명, 센서 시점, 하드웨어 통신, 상태 전환이 서로 영향을 주며 새로운 failure가 나타났다. 팀은 주행을 rosbag으로 기록하고 인지 결과, 미션 상태, 속도 및 조향 명령을 같은 시간축에서 확인한 뒤 코드를 수정하고 다시 주행했다. 이 과정을 반복해 최종 대회에서 전 코스를 완주했으며 114개 팀 중 7위를 기록했다.
+
+<!-- Source: official competition broadcast; 10-second derivative montage already used by this project. -->
 <figure class="project-media">
-  {% include project_video.liquid src="/assets/video/projects/kookmin/kookmin_demo.mp4" poster="/assets/img/projects/kookmin/kookmin_poster.webp" aria_label="2026 Kookmin University autonomous driving competition run montage" %}
+  {% include project_video.liquid src="/assets/video/projects/kookmin/kookmin_demo.mp4" poster="/assets/img/projects/kookmin/kookmin_poster.webp" aria_label="2026 Kookmin University autonomous driving competition run montage" controls=true %}
   <figcaption>2026 Kookmin Autonomous Driving Competition. <a href="https://www.youtube.com/watch?v=CcfXS3UFL0A&t=17782s" target="_blank" rel="noopener noreferrer">Competition Run ↗</a></figcaption>
 </figure>
 
-## Key Contributions
+## System Overview
 
-- YOLO·OpenCV 기반 차선 인식 초기 구성
-- Camera–LiDAR 정보 결합 기반 장애물 인식 구조 구성
-- S자·라바콘 구간 반복 튜닝
-- rosbag 기반 실차 주행 실패 분석
+<figure class="project-media project-media--concept">
+  <span class="concept-label">System Overview</span>
+  <img src="{{ '/assets/img/projects/kookmin/system_architecture.svg' | relative_url }}" alt="Kookmin autonomous driving system from camera and LiDAR perception through mission decision, path tracking, and XYCAR control" width="960" height="560" loading="lazy" decoding="async">
+  <figcaption>실제 코드와 기록된 ROS2 topic을 바탕으로 정리한 전체 주행 stack. 각 미션의 출력은 Mission Manager를 거쳐 차량 제어로 연결된다.</figcaption>
+</figure>
 
-## Driving System
+## My Contribution in the Team
 
-### Lane Perception & Tracking
+5인 팀의 통합 과정에서 YOLO/OpenCV 차선 인식, Camera–LiDAR 정보 결합 기반 장애물 인식, 정적·동적 장애물 회피, 차선/Stanley tuning, 라바콘 경로, 신호등, Mission Manager, rosbag 분석과 실차 tuning 전반의 코드를 직접 수정하고 검증했다. 각 기능은 팀원이 함께 개발한 전체 시스템 안에서 통합했다.
 
-YOLO를 기본 차선 인식에 사용했지만 S자 구간에서는 검출 결과가 흔들리는 경우가 있었다. 이때 OpenCV로 얻은 차선 결과가 더 안정적인 경우에는 이를 보정 정보로 사용하였다.
+## From First Stack to Final Run
 
-차선 기반 경로는 Stanley Controller를 이용해 추종하였다. 대회 준비 후반에 팀원들과 실제 차량에서 Stanley 관련 파라미터 및 속도 정책을 반복적으로 튜닝하였다.
+<div class="timeline" aria-label="Development process from initial stack to competition">
+  <div><strong>Build</strong><span>차선, 장애물, 라바콘, 신호등 모듈 구성</span></div>
+  <div><strong>Integrate</strong><span>Mission Manager와 실차 제어 연결</span></div>
+  <div><strong>Diagnose</strong><span>failure 주행을 rosbag으로 기록하고 원인 구간 추적</span></div>
+  <div><strong>Retest</strong><span>코드 수정과 반복 주행 후 전 코스 완주</span></div>
+</div>
 
-### Camera–LiDAR Association
+## Read the Research Story
 
-YOLO로 객체를 검출하고 LiDAR에서는 인접한 측정점을 묶어 물체 후보를 생성하였다. LiDAR 측정이 순간적으로 누락되더라도 cluster가 바로 끊어지지 않도록 clustering 조건을 완화하였다. 카메라 객체 검출과 LiDAR cluster의 위치 관계를 함께 사용하였다.
-
-### Cone Course
-
-LiDAR로 좌·우 라바콘 위치를 구하고, 양쪽 라바콘의 상대 위치를 이용해 코스 중앙 방향의 경로점을 생성하였다. 생성된 경로는 Pure Pursuit으로 추종하였다.
-
-### Static / Dynamic Obstacles
-
-차선과 중앙선을 이용해 두 차로의 위치를 추정하고, 장애물이 있는 차로를 판단하여 반대 차로로 회피하였다. 동적 장애물도 별도의 추종 대상으로 두지 않고 동일한 회피 대상으로 처리하였다.
-
-### Traffic Light / Route Decision
-
-YOLO의 `red`, `green`, `left` class 인식 결과가 실제 route decision으로 이어지도록 구성하였다. `red`에서는 정지하고, `green`에서는 기존 경로를 유지하며, `left`에서는 좌회전 경로에 진입하도록 하였다.
-
-## Technical Challenges
-
-### S자 구간의 조기 가속과 경로 이탈
-
-직선 속도를 높인 뒤 S자에 진입하면 차량이 곡선을 충분히 추종하기 전에 다시 가속하거나, 변곡점에서 상태가 너무 일찍 직선으로 바뀌며 경로를 벗어나는 문제가 있었다.
-
-주행 로그를 확인하면서 전방 도로가 직선으로 보이는 시점과 차량의 횡방향 오차·heading이 실제로 안정되는 시점이 다르다는 것을 확인하였다.
-
-### rosbag Failure Analysis
-
-문제가 발생한 주행은 rosbag으로 기록하고 차선 인식 결과, 미션 상태, 속도 명령, 조향 명령을 시간 순서로 다시 확인하였다.
-
-인식, 경로 생성, 상태 전환, 제어 중 어느 단계에서 문제가 시작됐는지 구분해 보려고 했다. 대회 준비 후반에는 대부분의 주행 문제를 rosbag으로 다시 확인하면서 수정하였다.
-
-## Results
-
-- 전 코스 완주
-- 114개 팀 중 7위
-
-## Takeaways
-
-실차에서는 작은 인식 변화도 제어 결과까지 이어졌다. LiDAR point가 빠지거나 차선 인식이 순간적으로 흔들리는 것처럼 짧은 변화도 주행 경로와 조향에 영향을 줬다.
-
-그래서 문제가 생겼을 때 바로 controller gain을 바꾸기보다 rosbag에서 인식 결과부터 조향 명령까지 시간 순서로 확인하는 습관이 생겼다.
+<div class="carla-chapter-grid">
+  <a class="carla-chapter-card" href="{{ '/projects/02-kookmin-2026/full-driving-stack/' | relative_url }}">
+    <small>CHAPTER 01</small><strong>Building the Full Driving Stack</strong>
+    <p>차선, 장애물, 라바콘, 신호등과 차량 제어를 하나의 ROS2 stack으로 연결한 과정.</p><b>Open chapter →</b>
+  </a>
+  <a class="carla-chapter-card" href="{{ '/projects/02-kookmin-2026/platform-switch-recovery/' | relative_url }}">
+    <small>CHAPTER 02</small><strong>Recovering the Vehicle After the Platform Switch</strong>
+    <p>Nano PC에서 Jetson으로 전환한 뒤 VESC 통신을 다시 연결한 과정.</p><b>Open chapter →</b>
+  </a>
+  <a class="carla-chapter-card" href="{{ '/projects/02-kookmin-2026/lane-perception-lighting/' | relative_url }}">
+    <small>CHAPTER 03</small><strong>When Lane Perception Met Real Lighting</strong>
+    <p>형광등 반사로 흔들린 차선 결과를 비교하고 YOLO/OpenCV 우선순위를 바꾼 과정.</p><b>Open chapter →</b>
+  </a>
+  <a class="carla-chapter-card" href="{{ '/projects/02-kookmin-2026/obstacle-detection-timing/' | relative_url }}">
+    <small>CHAPTER 04</small><strong>Detecting Obstacles Before It Was Too Late</strong>
+    <p>늦은 장애물 확인을 Camera-first에서 LiDAR-first 흐름으로 바꾼 과정.</p><b>Open chapter →</b>
+  </a>
+  <a class="carla-chapter-card" href="{{ '/projects/02-kookmin-2026/s-curve-failure-analysis/' | relative_url }}">
+    <small>CHAPTER 05</small><strong>Why the Vehicle Accelerated Inside an S-Curve</strong>
+    <p>상태 전환, 속도, 조향을 같은 시간축에서 확인한 대표 failure analysis.</p><b>Open chapter →</b>
+  </a>
+  <a class="carla-chapter-card" href="{{ '/projects/02-kookmin-2026/mission-integration-result/' | relative_url }}">
+    <small>CHAPTER 06</small><strong>Missions, Final Integration &amp; Competition Result</strong>
+    <p>고정된 미션 규칙을 통합하고 실제 대회에서 전 코스를 완주한 결과.</p><b>Open chapter →</b>
+  </a>
+  <a class="carla-chapter-card" href="{{ '/projects/02-kookmin-2026/what-followed/' | relative_url }}">
+    <small>FINAL</small><strong>What This Project Led Me To</strong>
+    <p>기능 구현에서 실차 failure의 원인 사슬과 검증 방법으로 확장된 질문.</p><b>Open final page →</b>
+  </a>
+</div>

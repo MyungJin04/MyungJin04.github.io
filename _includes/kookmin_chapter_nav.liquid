@@ -1,0 +1,11 @@
+{% assign kookmin_current = include.current | default: page.chapter_key %}
+<nav class="carla-story-nav kookmin-story-nav" aria-label="Kookmin competition project chapters">
+  <a href="{{ '/projects/02-kookmin-2026/' | relative_url }}"{% if kookmin_current == 'overview' %} aria-current="page"{% endif %}><span>Overview</span></a>
+  <a href="{{ '/projects/02-kookmin-2026/full-driving-stack/' | relative_url }}"{% if kookmin_current == 'stack' %} aria-current="page"{% endif %}><small>01</small><span>Full Stack</span></a>
+  <a href="{{ '/projects/02-kookmin-2026/platform-switch-recovery/' | relative_url }}"{% if kookmin_current == 'platform' %} aria-current="page"{% endif %}><small>02</small><span>Platform</span></a>
+  <a href="{{ '/projects/02-kookmin-2026/lane-perception-lighting/' | relative_url }}"{% if kookmin_current == 'lane' %} aria-current="page"{% endif %}><small>03</small><span>Lane</span></a>
+  <a href="{{ '/projects/02-kookmin-2026/obstacle-detection-timing/' | relative_url }}"{% if kookmin_current == 'obstacle' %} aria-current="page"{% endif %}><small>04</small><span>Obstacles</span></a>
+  <a href="{{ '/projects/02-kookmin-2026/s-curve-failure-analysis/' | relative_url }}"{% if kookmin_current == 'scurve' %} aria-current="page"{% endif %}><small>05</small><span>S-Curve</span></a>
+  <a href="{{ '/projects/02-kookmin-2026/mission-integration-result/' | relative_url }}"{% if kookmin_current == 'missions' %} aria-current="page"{% endif %}><small>06</small><span>Missions</span></a>
+  <a href="{{ '/projects/02-kookmin-2026/what-followed/' | relative_url }}"{% if kookmin_current == 'questions' %} aria-current="page"{% endif %}><span>What followed</span></a>
+</nav>

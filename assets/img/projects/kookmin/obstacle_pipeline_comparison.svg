@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="470" viewBox="0 0 960 470" role="img" aria-labelledby="title desc">
+  <title id="title">Camera-first and LiDAR-first obstacle perception comparison</title>
+  <desc id="desc">The initial camera-first flow waits for a YOLO bounding box before checking LiDAR points. The revised flow creates physical candidates from LiDAR road ROI clusters and then checks them with YOLO.</desc>
+  <defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#72808a"/></marker><style>.b{fill:#fff;stroke:#cfd8de;stroke-width:1.5}.bad{fill:#fff3f1;stroke:#b76d61;stroke-width:1.5}.good{fill:#f2f5ed;stroke:#82966f;stroke-width:1.5}.l{fill:none;stroke:#72808a;stroke-width:1.5;marker-end:url(#a)}.t{font:600 15px Arial,sans-serif;fill:#18212b}.p{font:12px Arial,sans-serif;fill:#5d6772}.k{font:700 11px Arial,sans-serif;fill:#245a73;letter-spacing:1.2px}</style></defs>
+  <rect width="960" height="470" fill="#fff"/>
+  <text x="54" y="42" class="k">BEFORE · CAMERA-FIRST</text>
+  <g><rect x="54" y="68" width="162" height="72" rx="5" class="b"/><text x="135" y="98" text-anchor="middle" class="t">Camera</text><text x="135" y="119" text-anchor="middle" class="p">YOLO bbox</text>
+  <rect x="270" y="68" width="182" height="72" rx="5" class="b"/><text x="361" y="98" text-anchor="middle" class="t">LiDAR Check</text><text x="361" y="119" text-anchor="middle" class="p">points in image region</text>
+  <rect x="506" y="68" width="182" height="72" rx="5" class="b"/><text x="597" y="98" text-anchor="middle" class="t">Confirmation</text><text x="597" y="119" text-anchor="middle" class="p">obstacle state</text>
+  <rect x="742" y="68" width="164" height="72" rx="5" class="bad"/><text x="824" y="98" text-anchor="middle" class="t">Late Avoidance</text><text x="824" y="119" text-anchor="middle" class="p">collision observed</text>
+  <path d="M216 104H270" class="l"/><path d="M452 104H506" class="l"/><path d="M688 104H742" class="l"/></g>
+  <text x="54" y="208" class="k">AFTER · LIDAR-FIRST</text>
+  <g><rect x="54" y="234" width="162" height="72" rx="5" class="b"/><text x="135" y="264" text-anchor="middle" class="t">Road ROI</text><text x="135" y="285" text-anchor="middle" class="p">LiDAR scan</text>
+  <rect x="270" y="234" width="182" height="72" rx="5" class="b"/><text x="361" y="264" text-anchor="middle" class="t">Clustering</text><text x="361" y="285" text-anchor="middle" class="p">physical candidates</text>
+  <rect x="506" y="234" width="182" height="72" rx="5" class="b"/><text x="597" y="264" text-anchor="middle" class="t">YOLO Check</text><text x="597" y="285" text-anchor="middle" class="p">candidate confirmation</text>
+  <rect x="742" y="234" width="164" height="72" rx="5" class="good"/><text x="824" y="264" text-anchor="middle" class="t">Mission Logic</text><text x="824" y="285" text-anchor="middle" class="p">avoidance decision</text>
+  <path d="M216 270H270" class="l"/><path d="M452 270H506" class="l"/><path d="M688 270H742" class="l"/></g>
+  <rect x="54" y="360" width="852" height="60" rx="5" fill="#f5f7f8" stroke="#cfd8de"/><text x="480" y="386" text-anchor="middle" class="t">Earlier confirmation through LiDAR-first candidate generation</text><text x="480" y="406" text-anchor="middle" class="p">Obstacle state and command timing were checked together in rosbag replay.</text>
+</svg>

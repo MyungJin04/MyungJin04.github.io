@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="480" viewBox="0 0 720 360" role="img" aria-labelledby="title desc">
+  <title id="title">Where did the failure begin?</title>
+  <desc id="desc">A conceptual trace from perception to state transition, planning, control, and failure analysis.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8Z" fill="#72808a"/>
+    </marker>
+    <style>
+      .box{fill:#fff;stroke:#cfd8de;stroke-width:1.5}
+      .focus{fill:#eef5f8;stroke:#4f7890;stroke-width:1.5}
+      .line{fill:none;stroke:#72808a;stroke-width:1.6;marker-end:url(#arrow)}
+      .label{font:600 17px Arial,sans-serif;fill:#18212b}
+      .sub{font:12px Arial,sans-serif;fill:#5d6772}
+      .key{font:700 12px Arial,sans-serif;fill:#245a73;letter-spacing:1.1px}
+      .question{font:600 21px Arial,sans-serif;fill:#18212b}
+    </style>
+  </defs>
+  <rect width="720" height="360" fill="#fff"/>
+  <text x="30" y="34" class="key">TRACE THE FAILURE CHAIN</text>
+
+  <rect x="30" y="68" width="180" height="72" rx="5" class="box"/>
+  <text x="120" y="98" text-anchor="middle" class="label">Perception</text>
+  <text x="120" y="120" text-anchor="middle" class="sub">sensor output</text>
+
+  <rect x="270" y="68" width="180" height="72" rx="5" class="box"/>
+  <text x="360" y="98" text-anchor="middle" class="label">State Transition</text>
+  <text x="360" y="120" text-anchor="middle" class="sub">mode decision</text>
+
+  <rect x="510" y="68" width="180" height="72" rx="5" class="box"/>
+  <text x="600" y="98" text-anchor="middle" class="label">Planning</text>
+  <text x="600" y="120" text-anchor="middle" class="sub">route / mission</text>
+
+  <path d="M210 104H270" class="line"/>
+  <path d="M450 104H510" class="line"/>
+  <path d="M600 140V196" class="line"/>
+
+  <rect x="510" y="204" width="180" height="72" rx="5" class="box"/>
+  <text x="600" y="234" text-anchor="middle" class="label">Control</text>
+  <text x="600" y="256" text-anchor="middle" class="sub">vehicle command</text>
+
+  <rect x="270" y="204" width="180" height="72" rx="5" class="focus"/>
+  <text x="360" y="234" text-anchor="middle" class="label">Failure Analysis</text>
+  <text x="360" y="256" text-anchor="middle" class="sub">trace the chain</text>
+
+  <path d="M510 240H450" class="line"/>
+  <text x="360" y="326" text-anchor="middle" class="question">Where did the failure begin?</text>
+</svg>

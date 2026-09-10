@@ -1,0 +1,49 @@
+---
+layout: default
+---
+<div class="post project-detail carla-chapter-page kookmin-chapter-page">
+  <a class="project-back" href="{{ '/projects/02-kookmin-2026/' | relative_url }}" aria-label="Back to Kookmin competition project overview">← Kookmin Project Overview</a>
+
+  <header class="project-header">
+    <div class="project-header__copy">
+      <div class="project-kicker">
+        <span>Kookmin Research Story</span>
+        <span class="status-badge">{{ page.chapter_badge }}</span>
+      </div>
+      <h1>{{ page.title }}</h1>
+      {% if page.subtitle %}<p class="project-subtitle">{{ page.subtitle }}</p>{% endif %}
+    </div>
+  </header>
+
+  {% include kookmin_chapter_nav.liquid current=page.chapter_key %}
+
+  <article class="project-body carla-story-body kookmin-story-body">
+    {{ content }}
+  </article>
+
+  <nav class="chapter-pagination" aria-label="Previous and next Kookmin project chapters">
+    {% if page.previous_url %}
+      <a href="{{ page.previous_url | relative_url }}">
+        <small>Previous</small>
+        <span>← {{ page.previous_label }}</span>
+      </a>
+    {% endif %}
+    {% if page.next_url %}
+      <a class="chapter-pagination__next" href="{{ page.next_url | relative_url }}">
+        <small>Next</small>
+        <span>{{ page.next_label }} →</span>
+      </a>
+    {% endif %}
+  </nav>
+</div>
+
+<script src="{{ '/assets/js/project-media.js' | relative_url }}" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const chapterNav = document.querySelector('.kookmin-story-nav');
+    const currentChapter = chapterNav && chapterNav.querySelector('[aria-current="page"]');
+    if (chapterNav && currentChapter && chapterNav.scrollWidth > chapterNav.clientWidth) {
+      chapterNav.scrollLeft = currentChapter.offsetLeft - (chapterNav.clientWidth - currentChapter.offsetWidth) / 2;
+    }
+  });
+</script>
