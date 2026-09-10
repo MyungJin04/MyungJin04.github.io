@@ -26,11 +26,11 @@ next_label: Back to Overview
 <div class="carla-question-grid" aria-label="Research directions that followed from the project">
   <div class="carla-question">
     <small>Generalization &amp; Failure Evaluation</small>
-    <p>새로운 조건에서 learning-based driving이 언제 실패하는지 반복적으로 평가하고 그 원인을 분석하는 문제에 관심이 커졌다.</p>
+    <p>새로운 조건에서 학습 기반 주행이 언제 실패하는지 반복적으로 평가하고 원인을 분석하는 문제에 관심이 있다.</p>
   </div>
   <div class="carla-question">
     <small>Learning-based Decision &amp; Control</small>
-    <p>Imitation Learning에서 더 나아가 Reinforcement Learning도 직접 경험하고, 학습 방식의 원리와 failure mechanism을 이해한 상태에서 실험을 설계하고 싶다는 관심이 생겼다.</p>
+    <p>Imitation Learning에서 더 나아가 Reinforcement Learning도 직접 경험하고, 학습 방식의 원리와 실패 메커니즘을 이해하며 실험을 설계하는 데 관심이 있다.</p>
   </div>
 </div>
 

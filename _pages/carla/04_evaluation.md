@@ -20,7 +20,7 @@ next_label: Failure Analysis
 <figure class="project-media project-media--concept">
   <span class="concept-label">Conceptual Diagram</span>
   <img src="{{ '/assets/img/projects/carla/environment_comparison.svg' | relative_url }}" alt="Evaluation setup comparing development in Town04 with final repeated evaluation in Town03 using randomized obstacle placement" width="960" height="400" loading="lazy" decoding="async">
-  <figcaption><strong>Evaluation setup diagram.</strong> 실제 CARLA screenshot이 아니라 Town04 개발 조건과 Town03 최종 평가 조건의 차이를 정리한 도식이다.</figcaption>
+  <figcaption><strong>Evaluation setup diagram.</strong> 실제 CARLA 화면이 아니라 Town04 개발 조건과 Town03 최종 평가 조건의 차이를 정리한 도식이다.</figcaption>
 </figure>
 
 ## Why 30 Runs?
@@ -35,7 +35,7 @@ next_label: Failure Analysis
 
 ## Collision-free Runs under Unseen Conditions
 
-최종 자료에서 직접 기록한 지표는 collision count였다. 아래 collision-free runs는 30회에서 해당 collision count를 뺀 값으로 표시했다.
+최종 자료에서 직접 기록한 지표는 충돌 횟수였다. 아래의 충돌 없는 주행 횟수는 30회에서 해당 충돌 횟수를 뺀 값으로 표시했다.
 
 <figure class="project-media project-media--concept">
   <img src="{{ '/assets/img/projects/carla/collision_free_runs.svg' | relative_url }}" alt="Bar chart showing 23 of 30 collision-free rule-based runs, 20 of 30 hybrid runs, and 0 of 30 imitation-learning runs" width="960" height="500" loading="lazy" decoding="async">
@@ -44,7 +44,7 @@ next_label: Failure Analysis
 
 <p class="carla-metric-note"><strong>Corresponding collision counts:</strong> Rule-based 7/30 · Hybrid 10/30 · Imitation Learning 30/30.</p>
 
-Hybrid는 Imitation Learning보다 collision이 발생한 주행을 크게 줄였지만 Rule-based baseline을 넘지는 못했다. 따라서 Hybrid가 일반화 문제를 해결했거나 가장 우수한 방식이었다고 결론 내리지 않았다.
+Hybrid는 Imitation Learning보다 충돌이 발생한 주행을 크게 줄였지만 Rule-based 기준 방식을 넘지는 못했다. 따라서 Hybrid가 일반화 문제를 해결했거나 가장 우수한 방식이었다고 결론 내리지 않았다.
 
 ## Town04 Reference Results
 

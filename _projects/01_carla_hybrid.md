@@ -1,8 +1,8 @@
 ---
 layout: project
-title: "From Rule-Based Driving to Imitation Learning: What Failed Under Unseen Conditions?"
+title: "What Failed Under Unseen Conditions? Rule-Based, Imitation, and Hybrid Driving in CARLA"
 subtitle: CARLA에서 Rule-based, Imitation Learning, Hybrid 주행을 설계하고 낯선 환경에서 반복 평가한 프로젝트
-description: Rule-based, Imitation Learning, Hybrid 자율주행을 구현하고 CARLA의 낯선 환경에서 각 방식을 30회 반복 평가한 프로젝트.
+description: Rule-based, Imitation Learning, Hybrid 자율주행을 구현하고 낯선 환경에서 반복 평가와 failure analysis를 수행한 프로젝트.
 importance: 1
 year: 2026
 selected: true
@@ -56,7 +56,7 @@ resources: []
 <div class="carla-approach-grid carla-approach-grid--three" aria-label="Compared driving approaches">
   <div class="carla-approach"><h3>Rule-based</h3><p>Pure Pursuit과 Lattice를 이용한 기준 주행</p></div>
   <div class="carla-approach"><h3>Imitation Learning</h3><p>직접 수집한 주행 시연 데이터로 학습한 경량 정책</p></div>
-  <div class="carla-approach"><h3>Hybrid</h3><p>학습 기반 주행과 Rule-based reference 및 fallback의 결합</p></div>
+  <div class="carla-approach"><h3>Hybrid</h3><p>학습 기반 주행과 Rule-based 기준 경로 및 대체 제어의 결합</p></div>
 </div>
 
 세 접근은 개발 환경인 Town04에서 구현한 뒤, 개발에 사용하지 않은 Town03에서 장애물 배치를 바꾸며 각각 30회 반복 평가했다.

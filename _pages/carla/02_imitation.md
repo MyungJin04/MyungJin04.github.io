@@ -17,7 +17,7 @@ next_label: Hybrid Approach
 
 E2E와 학습 기반 주행을 처음 경험하기 위한 현실적인 첫 단계로 Imitation Learning을 선택했다. 직접 주행 시연 데이터를 만들 수 있고, Reinforcement Learning보다 프로젝트 기간과 사용 가능한 하드웨어 안에서 시도하기 적합했다.
 
-기본 주행 데이터는 Rule-based vehicle을 주행시켜 수집했다. Lattice보다 부드러운 장애물 회피 동작을 보여주기 위한 시연은 keyboard 조작으로 추가했다. 모델은 경량 CNN을 사용했으며, 모델 구조 자체보다 폐루프 주행에서 나타나는 행동과 실패를 비교하는 데 초점을 두었다.
+기본 주행 데이터는 Rule-based 차량을 주행시켜 수집했다. Lattice보다 부드러운 장애물 회피 동작을 보여주기 위한 시연은 키보드 조작으로 추가했다. 모델은 경량 CNN을 사용했으며, 모델 구조 자체보다 폐루프 주행에서 나타나는 행동과 실패를 비교하는 데 초점을 두었다.
 
 <figure class="project-media project-media--concept">
   <span class="concept-label">Conceptual Diagram</span>
@@ -27,7 +27,7 @@ E2E와 학습 기반 주행을 처음 경험하기 위한 현실적인 첫 단�
 
 ## Problem — No Recovery Behavior in the Dataset
 
-정상 주행 데이터 위주로 학습한 모델은 차선에서 벗어나거나 yaw가 틀어진 뒤 정상 경로로 돌아오는 행동을 학습하지 못했다. 작은 초기 조향 오차가 누적되면 차선 이탈로 이어졌고, 데이터셋 안에 복귀 과정이 없기 때문에 스스로 원래 경로를 회복하지 못했다.
+정상 주행 데이터 위주로 학습한 모델은 차선에서 벗어나거나 yaw 오차가 생긴 뒤 정상 경로로 돌아오는 행동을 학습하지 못했다. 작은 초기 조향 오차가 누적되면 차선 이탈로 이어졌고, 데이터셋 안에 복귀 과정이 없기 때문에 스스로 원래 경로를 회복하지 못했다.
 
 <div class="carla-figure-grid">
   <figure>
@@ -42,12 +42,12 @@ E2E와 학습 기반 주행을 처음 경험하기 위한 현실적인 첫 단�
 
 ## Solution — Add Recovery Driving Data
 
-다양한 yaw error와 lateral deviation 상태에서 차선 중앙으로 돌아오는 과정을 직접 수집했다. 정상 주행만 반복하는 대신, 편차가 생긴 상태와 복귀 조향을 데이터셋에 포함하고 <strong>54,000장의 recovery images</strong>를 추가했다.
+다양한 yaw 오차와 횡방향 편차 상태에서 차선 중앙으로 돌아오는 과정을 직접 수집했다. 정상 주행만 반복하는 대신, 편차가 생긴 상태와 복귀 조향을 데이터셋에 포함하고 <strong>54,000장의 recovery images</strong>를 추가했다.
 
 <figure class="project-media project-media--concept">
   <span class="concept-label">Conceptual Diagram</span>
   <img src="{{ '/assets/img/projects/carla/recovery_dataset.svg' | relative_url }}" alt="Recovery dataset composition with yaw error, lateral deviation, return trajectory, and 54,000 added images" width="960" height="410" loading="lazy" decoding="async">
-  <figcaption><strong>Recovery dataset composition.</strong> yaw·lateral deviation 상태와 차선 중앙으로 돌아오는 과정을 포함해 54,000장을 추가했다.</figcaption>
+  <figcaption><strong>Recovery dataset composition.</strong> yaw 오차와 횡방향 편차 상태, 차선 중앙으로 돌아오는 과정을 포함해 54,000장을 추가했다.</figcaption>
 </figure>
 
 ## Engineering Setback — Training Data Loss

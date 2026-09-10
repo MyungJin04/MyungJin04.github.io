@@ -1,7 +1,7 @@
 ---
 layout: carla_chapter
 title: Rule-based Baseline
-subtitle: Waypoint tracking과 obstacle avoidance를 연결하면서 조기 경로 복귀 문제를 수정한 과정
+subtitle: Waypoint 추종과 장애물 회피를 연결하면서 조기 경로 복귀 문제를 수정한 과정
 description: CARLA Rule-based baseline의 obstacle perception, tracking, classification, and control.
 permalink: /projects/01-carla-hybrid/rule-based-baseline/
 nav: false
@@ -15,7 +15,7 @@ next_label: Imitation Learning
 
 ## Baseline Driving System
 
-전역 waypoint tracking에는 Pure Pursuit을 사용하고, 장애물 회피에는 Lattice 기반 후보 경로를 적용했다. YOLO의 객체 정보와 LiDAR의 거리 정보를 함께 사용해 주행에 필요한 장애물 판단에 활용하고, 상황에 따라 회피, 추종, 정지를 구분했다. 이 단계는 이후 Imitation Learning과 Hybrid를 비교하기 위한 기준 주행이었지만, 처음부터 안정적으로 완성된 것은 아니었다.
+전역 waypoint 추종에는 Pure Pursuit을 사용하고, 장애물 회피에는 Lattice 기반 후보 경로를 적용했다. YOLO의 객체 정보와 LiDAR의 거리 정보를 함께 사용해 주행에 필요한 장애물 판단에 활용하고, 상황에 따라 회피, 추종, 정지를 구분했다. 이 단계는 이후 Imitation Learning과 Hybrid를 비교하기 위한 기준 주행이었지만, 처음부터 안정적으로 완성된 것은 아니었다.
 
 <figure class="project-media project-media--concept">
   <span class="concept-label">Conceptual Diagram</span>
@@ -25,7 +25,7 @@ next_label: Imitation Learning
 
 ## Problem — Returning Before the Obstacle Was Passed
 
-초기 회피 완료 조건은 “camera에서 장애물이 더 이상 보이지 않는가”에 의존했다. 장애물이 camera 시야에서 사라지면 이미 회피를 마쳤다고 판단했기 때문에, 차량이 장애물을 완전히 지나치기 전에 원래 waypoint 경로로 복귀하는 문제가 생겼다.
+초기 회피 완료 조건은 “카메라에서 장애물이 더 이상 보이지 않는가”에 의존했다. 장애물이 카메라 시야에서 사라지면 이미 회피를 마쳤다고 판단했기 때문에, 차량이 장애물을 완전히 지나치기 전에 원래 waypoint 경로로 복귀하는 문제가 생겼다.
 
 <figure class="project-media project-media--concept">
   <span class="concept-label">Conceptual Diagram</span>
@@ -35,14 +35,14 @@ next_label: Imitation Learning
 
 ## Fix — Tracking the Obstacle Relative to the Ego Vehicle
 
-장애물마다 `track_id`를 부여하고 로컬 좌표계에서 ego vehicle과의 상대 위치를 추적했다. camera에서 보이지 않는지만 확인하는 대신, 장애물이 차량 뒤로 지나갔는지를 확인한 뒤 waypoint 경로로 복귀하도록 판단 기준을 변경했다.
+장애물마다 `track_id`를 부여하고 로컬 좌표계에서 자차와의 상대 위치를 추적했다. 카메라에서 보이지 않는지만 확인하는 대신, 장애물이 차량 뒤로 지나갔는지를 확인한 뒤 waypoint 경로로 복귀하도록 판단 기준을 변경했다.
 
 동일한 장애물 처리 방식만으로는 상황별 행동을 구분하기 어려워 동작 상태도 나눴다.
 
 <div class="carla-state-grid" aria-label="Obstacle motion states and vehicle behavior">
   <div class="carla-state"><h3>STATIC</h3><p>정지 장애물 · Lattice 회피</p></div>
-  <div class="carla-state"><h3>SLOW_MOVING_IN_LANE</h3><p>느린 선행차 · 안전 거리 유지와 follow</p></div>
-  <div class="carla-state"><h3>CUT_IN/CROSSING</h3><p>끼어드는 차량 또는 보행자 · 감속이나 stop</p></div>
+  <div class="carla-state"><h3>SLOW_MOVING_IN_LANE</h3><p>느린 선행차 · 안전 거리 유지와 추종</p></div>
+  <div class="carla-state"><h3>CUT_IN/CROSSING</h3><p>끼어드는 차량 또는 보행자 · 감속이나 정지</p></div>
   <div class="carla-state"><h3>OTHER_LANE_MOVING</h3><p>다른 차선의 이동 객체 · 현재 경로에서 제외</p></div>
 </div>
 

@@ -1,7 +1,7 @@
 ---
 layout: carla_chapter
 title: Why Did It Fail?
-subtitle: 낯선 장애물 배치에서 드러난 replanning과 drivable-area constraint의 한계
+subtitle: 낯선 장애물 배치에서 드러난 replanning과 drivable area 제약 조건의 한계
 description: Failure analysis of large-obstacle replanning and collision-free but non-drivable Lattice paths.
 permalink: /projects/01-carla-hybrid/failure-analysis/
 nav: false
@@ -31,8 +31,8 @@ next_label: What This Project Led Me To
 ## Case 2 — Collision-free ≠ Drivable
 
 <div class="carla-analysis-grid" aria-label="Drivable-area failure analysis">
-  <div><small>Observation</small><p>Town03의 일부 장애물 배치에서 생성된 회피 경로가 의도한 drivable area 밖으로 향하는 사례가 발생했다.</p></div>
-  <div><small>Why</small><p>Planner의 후보 선택은 장애물과 겹치지 않는 데 초점을 두었고, 도로 경계와 drivable area가 명시적인 제약 조건에 포함되지 않았다.</p></div>
+  <div><small>Observation</small><p>Town03의 일부 장애물 배치에서는 회피 과정에서 생성된 주행이 의도한 drivable area 밖으로 향했다.</p></div>
+  <div><small>Why</small><p>경로 후보를 선택할 때 장애물과 겹치지 않는지를 중심으로 판단했고, 도로 경계와 drivable area는 명시적인 제약 조건에 포함하지 않았다.</p></div>
 </div>
 
 <div class="carla-callout carla-callout--plain">
@@ -49,5 +49,5 @@ next_label: What This Project Led Me To
 
 <div class="carla-analysis-grid" aria-label="Drivable-area failure follow-up">
   <div><small>What Was Missing</small><p>생성한 경로가 실제 주행 가능 영역 안에 있는지 확인하는 도로 경계 인식과 경로 검증이 없었다.</p></div>
-  <div><small>Future Improvement · Not Implemented</small><p>Drivable-area constraint와 도로 경계를 후보 경로 생성 및 검증 조건에 포함하는 방향을 도출했다.</p></div>
+  <div><small>Future Improvement · Not Implemented</small><p>drivable area와 도로 경계를 후보 경로의 생성 및 검증 조건에 포함하는 방향을 도출했다.</p></div>
 </div>
