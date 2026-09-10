@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="480" viewBox="0 0 960 480" role="img" aria-labelledby="title desc">
+  <title id="title">Platform switch and VESC communication recovery</title>
+  <desc id="desc">A timeline from Nano PC to Jetson, diagnosis with ST-Link, failure of the original five-pin USB connection, and restored UART communication through an isolated USB-to-TTL adapter.</desc>
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#72808a"/></marker>
+    <style>.b{fill:#fff;stroke:#cfd8de;stroke-width:1.5}.s{fill:#f5f7f8;stroke:#cfd8de;stroke-width:1.5}.x{fill:#fff3f1;stroke:#b76d61;stroke-width:1.5}.ok{fill:#f2f5ed;stroke:#82966f;stroke-width:1.5}.l{fill:none;stroke:#72808a;stroke-width:1.6;marker-end:url(#a)}.d{fill:none;stroke:#9aa6ae;stroke-width:1.4;stroke-dasharray:5 5}.t{font:600 16px Arial,sans-serif;fill:#18212b}.p{font:13px Arial,sans-serif;fill:#5d6772}.k{font:700 11px Arial,sans-serif;fill:#245a73;letter-spacing:1.2px}</style>
+  </defs>
+  <rect width="960" height="480" fill="#fff"/><text x="54" y="42" class="k">PLATFORM TRANSITION</text>
+  <rect x="54" y="68" width="220" height="92" rx="5" class="s"/><text x="164" y="104" text-anchor="middle" class="t">Nano PC</text><text x="164" y="130" text-anchor="middle" class="p">initial development platform</text>
+  <rect x="370" y="68" width="220" height="92" rx="5" class="b"/><text x="480" y="101" text-anchor="middle" class="t">Platform Switch</text><text x="480" y="126" text-anchor="middle" class="p">about two weeks before</text><text x="480" y="145" text-anchor="middle" class="p">the competition</text>
+  <rect x="686" y="68" width="220" height="92" rx="5" class="ok"/><text x="796" y="101" text-anchor="middle" class="t">Jetson</text><text x="796" y="126" text-anchor="middle" class="p">Lane ≈ 15 Hz</text><text x="796" y="145" text-anchor="middle" class="p">Object ≈ 10 Hz</text>
+  <path d="M274 114H370" class="l"/><path d="M590 114H686" class="l"/>
+
+  <text x="54" y="218" class="k">COMMUNICATION RECOVERY</text>
+  <rect x="54" y="244" width="210" height="86" rx="5" class="x"/><text x="159" y="278" text-anchor="middle" class="t">5-pin USB</text><text x="159" y="304" text-anchor="middle" class="p">Jetson ↔ VESC failed</text>
+  <rect x="375" y="244" width="210" height="86" rx="5" class="b"/><text x="480" y="278" text-anchor="middle" class="t">ST-Link Check</text><text x="480" y="304" text-anchor="middle" class="p">VESC STM32 alive</text>
+  <rect x="696" y="230" width="210" height="114" rx="5" class="ok"/><text x="801" y="262" text-anchor="middle" class="t">Isolated USB-to-TTL</text><text x="801" y="286" text-anchor="middle" class="p">GND · TX · RX</text><text x="801" y="310" text-anchor="middle" class="p">UART communication restored</text>
+  <path d="M264 287H375" class="l"/><path d="M585 287H696" class="l"/>
+  <path d="M696 376H906" class="d"/><text x="801" y="401" text-anchor="middle" class="p">PC/VESC power paths kept separate</text>
+  <text x="54" y="430" class="p">Power paths were separated; GND, TX, and RX carried the UART link.</text>
+</svg>

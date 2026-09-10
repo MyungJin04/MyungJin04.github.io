@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">S-curve state transition before and after the hold</title>
+  <desc id="desc">Before, the controller immediately switches from Curve to Straight when the road looks straight. After, it holds Curve for about 0.2 seconds and then transitions after stabilization.</desc>
+  <defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#72808a"/></marker><style>.b{fill:#fff;stroke:#cfd8de;stroke-width:1.5}.bad{fill:#fff3f1;stroke:#b76d61;stroke-width:1.5}.good{fill:#f2f5ed;stroke:#82966f;stroke-width:1.5}.accent{fill:#eaf2f5;stroke:#245a73;stroke-width:1.5}.l{fill:none;stroke:#72808a;stroke-width:1.6;marker-end:url(#a)}.t{font:600 15px Arial,sans-serif;fill:#18212b}.p{font:12px Arial,sans-serif;fill:#5d6772}.k{font:700 11px Arial,sans-serif;fill:#245a73;letter-spacing:1.2px}</style></defs>
+  <rect width="960" height="420" fill="#fff"/>
+  <text x="54" y="42" class="k">OBSERVED STATE TRANSITION</text>
+  <rect x="54" y="68" width="206" height="72" rx="5" class="b"/><text x="157" y="98" text-anchor="middle" class="t">Curve</text><text x="157" y="119" text-anchor="middle" class="p">vehicle still settling</text>
+  <rect x="377" y="68" width="206" height="72" rx="5" class="bad"/><text x="480" y="98" text-anchor="middle" class="t">Immediate Straight</text><text x="480" y="119" text-anchor="middle" class="p">road appears straight</text>
+  <rect x="700" y="68" width="206" height="72" rx="5" class="bad"/><text x="803" y="98" text-anchor="middle" class="t">Speed Increase</text><text x="803" y="119" text-anchor="middle" class="p">oscillation follows</text>
+  <path d="M260 104H377" class="l"/><path d="M583 104H700" class="l"/>
+
+  <text x="54" y="218" class="k">IMPLEMENTED CHANGE</text>
+  <rect x="54" y="244" width="206" height="72" rx="5" class="b"/><text x="157" y="274" text-anchor="middle" class="t">Curve</text><text x="157" y="295" text-anchor="middle" class="p">Straight condition detected</text>
+  <rect x="377" y="244" width="206" height="72" rx="5" class="accent"/><text x="480" y="274" text-anchor="middle" class="t">Hold ≈ 0.2 s</text><text x="480" y="295" text-anchor="middle" class="p">keep Curve state</text>
+  <rect x="700" y="244" width="206" height="72" rx="5" class="good"/><text x="803" y="274" text-anchor="middle" class="t">Transition</text><text x="803" y="295" text-anchor="middle" class="p">after vehicle stabilization</text>
+  <path d="M260 280H377" class="l"/><path d="M583 280H700" class="l"/>
+  <text x="54" y="372" class="p">The Curve-state hold was applied, then checked in a real-vehicle retest.</text>
+</svg>
