@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 410" role="img" aria-labelledby="title desc">
+  <title id="title">Normal and recovery demonstrations</title>
+  <desc id="desc">Normal rule-based driving demonstrations and recovery trajectories from deviation to lane center are combined before training the lightweight policy.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#245a73"/></marker>
+  </defs>
+  <rect width="960" height="410" fill="#ffffff"/>
+  <g font-family="Inter, Noto Sans KR, Arial, sans-serif">
+    <text x="45" y="55" fill="#18212b" font-size="25" font-weight="600">Normal vs Recovery Demonstration</text>
+    <text x="45" y="83" fill="#5d6772" font-size="15">The model needed examples of both stable driving and returning from an off-center state.</text>
+    <rect x="55" y="125" width="260" height="92" rx="7" fill="#f5f7f8" stroke="#dce2e7"/>
+    <text x="78" y="158" fill="#245a73" font-size="14" font-weight="700" letter-spacing="1">NORMAL DEMONSTRATION</text>
+    <text x="78" y="188" fill="#18212b" font-size="18" font-weight="600">Rule-based vehicle</text>
+    <rect x="55" y="245" width="260" height="92" rx="7" fill="#f5f7f8" stroke="#dce2e7"/>
+    <text x="78" y="278" fill="#245a73" font-size="14" font-weight="700" letter-spacing="1">RECOVERY DEMONSTRATION</text>
+    <text x="78" y="308" fill="#18212b" font-size="17" font-weight="600">Deviation → lane center</text>
+    <rect x="385" y="165" width="220" height="130" rx="7" fill="#eaf2f5" stroke="#b9ccd5"/>
+    <text x="495" y="213" fill="#18212b" font-size="20" font-weight="600" text-anchor="middle">Combined</text>
+    <text x="495" y="244" fill="#18212b" font-size="20" font-weight="600" text-anchor="middle">demonstrations</text>
+    <text x="495" y="272" fill="#5d6772" font-size="15" text-anchor="middle">images + driving targets</text>
+    <rect x="680" y="165" width="225" height="130" rx="7" fill="#245a73" stroke="#245a73"/>
+    <text x="792" y="216" fill="#ffffff" font-size="20" font-weight="600" text-anchor="middle">Lightweight CNN</text>
+    <text x="792" y="249" fill="#ffffff" font-size="17" text-anchor="middle">Imitation policy</text>
+    <path d="M315 171H355Q370 171 370 190V210Q370 230 385 230" fill="none" stroke="#245a73" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M315 291H355Q370 291 370 272V250Q370 230 385 230" fill="none" stroke="#245a73" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M605 230H665" fill="none" stroke="#245a73" stroke-width="2" marker-end="url(#arrow)"/>
+  </g>
+</svg>

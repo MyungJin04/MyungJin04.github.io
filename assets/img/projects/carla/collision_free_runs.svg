@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" role="img" aria-labelledby="title desc">
+  <title id="title">Collision-free runs under unseen conditions</title>
+  <desc id="desc">Rule-based completed 23 of 30 runs without collision, Hybrid completed 20 of 30, and Imitation Learning completed zero of 30.</desc>
+  <rect width="960" height="500" fill="#ffffff"/>
+  <g font-family="Inter, Noto Sans KR, Arial, sans-serif">
+    <text x="45" y="55" fill="#18212b" font-size="25" font-weight="600">Collision-free Runs under Unseen Conditions</text>
+    <text x="45" y="83" fill="#5d6772" font-size="15">Town03 · randomized obstacle placement · 30 runs per method</text>
+    <g stroke="#dce2e7" stroke-width="1">
+      <line x1="260" y1="120" x2="260" y2="415"/>
+      <line x1="463" y1="120" x2="463" y2="415"/>
+      <line x1="667" y1="120" x2="667" y2="415"/>
+      <line x1="870" y1="120" x2="870" y2="415"/>
+    </g>
+    <g fill="#5d6772" font-size="14" text-anchor="middle">
+      <text x="260" y="443">0</text><text x="463" y="443">10</text><text x="667" y="443">20</text><text x="870" y="443">30 runs</text>
+    </g>
+    <g fill="#18212b" font-size="17" font-weight="600">
+      <text x="45" y="178">Rule-based</text>
+      <text x="45" y="278">Hybrid</text>
+      <text x="45" y="378">Imitation Learning</text>
+    </g>
+    <rect x="260" y="145" width="468" height="52" rx="4" fill="#245a73"/>
+    <rect x="260" y="245" width="407" height="52" rx="4" fill="#6f8fa0"/>
+    <line x1="260" y1="345" x2="260" y2="397" stroke="#9ba7af" stroke-width="4"/>
+    <g font-size="18" font-weight="700">
+      <text x="742" y="178" fill="#18212b">23 / 30</text>
+      <text x="681" y="278" fill="#18212b">20 / 30</text>
+      <text x="278" y="378" fill="#5d6772">0 / 30</text>
+    </g>
+  </g>
+</svg>

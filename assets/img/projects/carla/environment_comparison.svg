@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" role="img" aria-labelledby="title desc">
+  <title id="title">Town04 and Town03 evaluation setup</title>
+  <desc id="desc">Town04 was used for development and reference evaluation. Town03 with randomized obstacles was used for final repeated generalization evaluation.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#245a73"/></marker>
+  </defs>
+  <rect width="960" height="400" fill="#ffffff"/>
+  <g font-family="Inter, Noto Sans KR, Arial, sans-serif">
+    <text x="45" y="55" fill="#18212b" font-size="25" font-weight="600">Evaluation setup</text>
+    <rect x="45" y="100" width="365" height="240" rx="8" fill="#f5f7f8" stroke="#dce2e7"/>
+    <text x="75" y="143" fill="#245a73" font-size="14" font-weight="700" letter-spacing="1">DEVELOPMENT</text>
+    <text x="75" y="183" fill="#18212b" font-size="30" font-weight="600">Town04</text>
+    <line x1="75" y1="204" x2="380" y2="204" stroke="#dce2e7"/>
+    <text x="75" y="240" fill="#18212b" font-size="17">Environment setup and iteration</text>
+    <text x="75" y="273" fill="#5d6772" font-size="16">Rule-based · Imitation · Hybrid</text>
+    <text x="75" y="305" fill="#5d6772" font-size="16">Reference-condition metrics</text>
+    <rect x="550" y="100" width="365" height="240" rx="8" fill="#eaf2f5" stroke="#b9ccd5"/>
+    <text x="580" y="143" fill="#245a73" font-size="14" font-weight="700" letter-spacing="1">FINAL GENERALIZATION EVALUATION</text>
+    <text x="580" y="183" fill="#18212b" font-size="30" font-weight="600">Town03</text>
+    <line x1="580" y1="204" x2="885" y2="204" stroke="#b9ccd5"/>
+    <text x="580" y="240" fill="#18212b" font-size="17">Different map</text>
+    <text x="580" y="273" fill="#18212b" font-size="17">Random obstacle placement</text>
+    <text x="580" y="305" fill="#245a73" font-size="16" font-weight="600">30 runs per method</text>
+    <path d="M425 220H530" stroke="#245a73" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="478" y="200" fill="#5d6772" font-size="13" text-anchor="middle">change conditions</text>
+  </g>
+</svg>

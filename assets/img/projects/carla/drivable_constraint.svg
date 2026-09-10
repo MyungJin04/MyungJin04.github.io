@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" role="img" aria-labelledby="title desc">
+  <title id="title">Collision-free and drivable path comparison</title>
+  <desc id="desc">Without a road constraint, a collision-free path enters the sidewalk. With a drivable-area constraint, a future candidate remains within the road boundary.</desc>
+  <defs>
+    <marker id="bad-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#a35c42"/></marker>
+    <marker id="good-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#245a73"/></marker>
+  </defs>
+  <rect width="960" height="500" fill="#ffffff"/>
+  <g font-family="Inter, Noto Sans KR, Arial, sans-serif">
+    <text x="45" y="48" fill="#18212b" font-size="23" font-weight="600">Collision-free does not always mean drivable</text>
+    <rect x="35" y="80" width="430" height="370" rx="8" fill="#ffffff" stroke="#e2cfc7"/>
+    <text x="60" y="116" fill="#8b4d37" font-size="15" font-weight="700" letter-spacing="1">WITHOUT ROAD CONSTRAINT</text>
+    <rect x="115" y="140" width="270" height="270" fill="#e6eaed"/>
+    <rect x="75" y="140" width="40" height="270" fill="#f2eee7"/>
+    <rect x="385" y="140" width="40" height="270" fill="#f2eee7"/>
+    <line x1="250" y1="140" x2="250" y2="410" stroke="#ffffff" stroke-width="4" stroke-dasharray="20 16"/>
+    <rect x="225" y="235" width="50" height="72" rx="7" fill="#6b747b"/>
+    <text x="250" y="229" fill="#5d6772" font-size="13" text-anchor="middle">obstacle</text>
+    <path d="M200 375 C190 330 310 330 395 280 C410 270 410 230 410 200" fill="none" stroke="#a35c42" stroke-width="5" marker-end="url(#bad-arrow)"/>
+    <text x="338" y="432" fill="#8b4d37" font-size="14" text-anchor="middle">collision-free, but sidewalk</text>
+
+    <rect x="495" y="80" width="430" height="370" rx="8" fill="#ffffff" stroke="#b9ccd5"/>
+    <text x="520" y="116" fill="#245a73" font-size="15" font-weight="700" letter-spacing="1">WITH DRIVABLE-AREA CONSTRAINT</text>
+    <rect x="575" y="140" width="270" height="270" fill="#e6eaed"/>
+    <rect x="535" y="140" width="40" height="270" fill="#f2eee7"/>
+    <rect x="845" y="140" width="40" height="270" fill="#f2eee7"/>
+    <line x1="710" y1="140" x2="710" y2="410" stroke="#ffffff" stroke-width="4" stroke-dasharray="20 16"/>
+    <rect x="685" y="235" width="50" height="72" rx="7" fill="#6b747b"/>
+    <text x="710" y="229" fill="#5d6772" font-size="13" text-anchor="middle">obstacle</text>
+    <path d="M660 375 C625 330 625 260 650 212 C660 192 673 180 685 170" fill="none" stroke="#245a73" stroke-width="5" marker-end="url(#good-arrow)"/>
+    <line x1="575" y1="140" x2="575" y2="410" stroke="#245a73" stroke-width="2" stroke-dasharray="6 6"/>
+    <line x1="845" y1="140" x2="845" y2="410" stroke="#245a73" stroke-width="2" stroke-dasharray="6 6"/>
+    <text x="710" y="432" fill="#245a73" font-size="14" text-anchor="middle">future improvement · not implemented</text>
+  </g>
+</svg>
