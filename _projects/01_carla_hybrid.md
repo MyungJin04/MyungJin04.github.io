@@ -1,6 +1,7 @@
 ---
 layout: project
 title: "What Failed Under Unseen Conditions? Rule-Based, Imitation, and Hybrid Driving in CARLA"
+display_title: 'What Failed Under Unseen Conditions?<br><span class="project-title-line--nowrap"><span style="white-space: nowrap;">Rule-Based</span>, Imitation, and Hybrid Driving in CARLA</span>'
 subtitle: CARLA에서 Rule-based, Imitation Learning, Hybrid 주행을 설계하고 낯선 환경에서 반복 평가한 프로젝트
 description: Rule-based, Imitation Learning, Hybrid 자율주행을 구현하고 낯선 환경에서 반복 평가와 failure analysis를 수행한 프로젝트.
 importance: 1
@@ -77,6 +78,8 @@ resources: []
   <div><small>Hybrid</small><strong>20 / 30</strong><span>collision-free runs</span></div>
   <div><small>Imitation Learning</small><strong>0 / 30</strong><span>collision-free runs</span></div>
 </div>
+
+<p class="carla-metric-note">※ Collision-free run은 충돌이 기록되지 않은 주행을 의미하며, 전체 미션 성공과 동일한 지표는 아닙니다.</p>
 
 <div class="carla-callout carla-callout--plain">
   <small>Unseen-condition evaluation</small>

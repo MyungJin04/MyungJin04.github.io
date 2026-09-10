@@ -15,9 +15,9 @@ next_label: Hybrid Approach
 
 ## Why Imitation Learning?
 
-E2E와 학습 기반 주행을 처음 경험하기 위한 현실적인 첫 단계로 Imitation Learning을 선택했다. 직접 주행 시연 데이터를 만들 수 있고, Reinforcement Learning보다 프로젝트 기간과 사용 가능한 하드웨어 안에서 시도하기 적합했다.
+당시 E2E 자율주행에 관심이 생겼고, 학습 기반 주행을 처음 경험하기 위한 현실적인 첫 단계로 Imitation Learning을 선택했다. 직접 주행 시연 데이터를 만들 수 있고, Reinforcement Learning보다 프로젝트 기간과 사용 가능한 하드웨어 안에서 시도하기 적합했다.
 
-기본 주행 데이터는 Rule-based 차량을 주행시켜 수집했다. Lattice보다 부드러운 장애물 회피 동작을 보여주기 위한 시연은 키보드 조작으로 추가했다. 모델은 경량 CNN을 사용했으며, 모델 구조 자체보다 폐루프 주행에서 나타나는 행동과 실패를 비교하는 데 초점을 두었다.
+기본 주행 데이터는 Rule-based 차량을 주행시켜 수집했다. 장애물 회피 상황의 demonstration은 사람이 키보드로 직접 주행하여 추가 수집했다. 모델은 경량 CNN을 사용했으며, 모델 구조 자체보다 폐루프 주행에서 나타나는 행동과 실패를 비교하는 데 초점을 두었다.
 
 <figure class="project-media project-media--concept">
   <span class="concept-label">Conceptual Diagram</span>

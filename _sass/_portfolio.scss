@@ -419,6 +419,12 @@ body {
   overflow-wrap: anywhere;
 }
 
+.project-title-line--nowrap {
+  @media (min-width: 768px) {
+    white-space: nowrap;
+  }
+}
+
 .project-header__image {
   margin: 0;
 
