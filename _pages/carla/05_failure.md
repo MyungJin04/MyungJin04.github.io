@@ -35,6 +35,12 @@ next_label: What This Project Led Me To
   <div><small>Why</small><p>경로 후보를 선택할 때 장애물과 겹치지 않는지를 중심으로 판단했고, 도로 경계와 drivable area는 명시적인 제약 조건에 포함하지 않았다.</p></div>
 </div>
 
+<!-- Source: simplescreenrecorder-2026-06-10_00.05.04.mkv; trim: 00:00:43.500–00:00:50.200; original preserved. -->
+<figure class="project-media">
+  {% include project_video.liquid src="/assets/video/projects/carla/failure_town03_offroad.mp4" poster="/assets/img/projects/carla/failure_town03_offroad_poster.webp" aria_label="Observed road-area violation during the Town03 unseen-condition test" controls=true %}
+  <figcaption><strong>Observed road-area violation during the Town03 unseen-condition test.</strong> Town03 낯선 환경 평가에서 관찰된 실제 failure로, 장애물 회피 과정에서 차량의 주행이 의도한 drivable area 밖으로 향했다.</figcaption>
+</figure>
+
 <div class="carla-callout carla-callout--plain">
   <small>Failure Condition</small>
   <h3>Collision-free ≠ Drivable</h3>
