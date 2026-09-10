@@ -17,7 +17,7 @@ next_label: Evaluation under Unseen Conditions
 
 Hybrid는 Imitation Learning이 실패한 뒤 임시로 덧붙인 방식이 아니다. limited data, lightweight CNN, unseen test environment라는 조건에서 Imitation Learning만으로 완전한 주행이 어려울 가능성을 예상했고, 프로젝트 시작 단계부터 Rule-based, Imitation Learning, Hybrid를 비교 대상으로 두었다.
 
-목표는 learning-based driving의 비교적 부드러운 행동과 Rule-based reference의 안정성을 결합할 수 있는지 확인하는 것이었다.
+목표는 learning-based driving의 비교적 부드러운 행동과 기존 planning 방식의 predictability를 한 시스템 안에서 비교하고 결합해보는 것이었다.
 
 <figure class="project-media project-media--concept">
   <span class="concept-label">Conceptual Diagram</span>
@@ -31,9 +31,12 @@ Imitation Learning이 기본적으로 차량을 주행하는 동안 Rule-based p
 
 당시 사용한 정확한 switching threshold 값은 보존된 자료에서 확인하지 못해 이 페이지에 숫자로 적지 않았다.
 
+Rule-based planner는 reference와 fallback으로 사용했으며, formal safety guarantee를 제공하는 구조로 해석하지 않았다.
+
+<!-- Source: simplescreenrecorder-2026-06-10_00.05.04.mkv; trim: 00:00:24–00:00:34; original preserved. -->
 <figure class="project-media">
-  {% include project_video.liquid src="/assets/video/projects/carla/hybrid_town04_demo.mp4" poster="/assets/img/projects/carla/hybrid_town04_poster.webp" aria_label="Town04 hybrid driving demonstration in CARLA" %}
-  <figcaption><strong>Town04 Hybrid Driving Demo.</strong> 제공된 71초 원본에서 대표적인 12초 구간을 추출한 실제 프로젝트 영상.</figcaption>
+  {% include project_video.liquid src="/assets/video/projects/carla/hybrid_town04_demo.mp4" poster="/assets/img/projects/carla/hybrid_town04_poster.webp" aria_label="Town04 hybrid driving demonstration in CARLA" controls=true %}
+  <figcaption><strong>Representative Hybrid driving in Town04.</strong> Switching logic은 위 diagram에서 설명하며, 이 영상은 개발 환경에서의 vehicle behavior를 보여준다.</figcaption>
 </figure>
 
 <div class="carla-callout carla-callout--plain">

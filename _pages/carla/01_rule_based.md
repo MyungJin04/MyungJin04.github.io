@@ -15,12 +15,7 @@ next_label: Imitation Learning
 
 ## Baseline Driving System
 
-전역 waypoint tracking에는 Pure Pursuit을 사용하고, 장애물 회피에는 Lattice 기반 후보 경로를 적용했다. Camera와 LiDAR 정보로 장애물을 판단한 뒤 상황에 따라 회피, 추종, 정지를 구분했다. 이 단계는 이후 Imitation Learning과 Hybrid를 비교하기 위한 기준 주행이었지만, 처음부터 안정적으로 완성된 것은 아니었다.
-
-<figure class="project-media">
-  {% include project_video.liquid src="/assets/video/projects/carla/lattice_baseline_demo.mp4" poster="/assets/img/projects/carla/lattice_baseline_poster.webp" aria_label="CARLA and RViz view during early Lattice obstacle avoidance development" %}
-  <figcaption>초기 Lattice 개발 장면. CARLA 주행 화면과 RViz의 경로·장애물 시각화를 함께 기록한 실제 프로젝트 영상이다.</figcaption>
-</figure>
+전역 waypoint tracking에는 Pure Pursuit을 사용하고, 장애물 회피에는 Lattice 기반 후보 경로를 적용했다. YOLO의 객체 정보와 LiDAR의 거리 정보를 함께 사용해 주행에 필요한 장애물 판단에 활용하고, 상황에 따라 회피, 추종, 정지를 구분했다. 이 단계는 이후 Imitation Learning과 Hybrid를 비교하기 위한 기준 주행이었지만, 처음부터 안정적으로 완성된 것은 아니었다.
 
 <figure class="project-media project-media--concept">
   <span class="concept-label">Conceptual Diagram</span>
@@ -52,3 +47,11 @@ next_label: Imitation Learning
 </div>
 
 이 분류를 이용해 회피가 필요한 정적 장애물, 추종해야 하는 느린 선행차, 정지가 필요한 횡방향 진입 객체를 서로 다른 행동으로 연결했다.
+
+## Final Rule-based Driving
+
+<!-- Source: 585471514-9653dc23-5306-4e5c-a1d0-36722e1f2732.mp4; trim: 00:01:16–00:01:30; original preserved. -->
+<figure class="project-media">
+  {% include project_video.liquid src="/assets/video/projects/carla/rule_based_final_demo.mp4" poster="/assets/img/projects/carla/rule_based_final_poster.webp" aria_label="Final Rule-based driving with CARLA and RViz visualization" controls=true %}
+  <figcaption>최종 Rule-based 주행. CARLA에서 waypoint를 추종하며, RViz에서 인식된 객체와 reference path를 함께 확인할 수 있다.</figcaption>
+</figure>

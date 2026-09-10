@@ -4,6 +4,7 @@
   muted
   loop
   playsinline
+  {% if include.controls %}controls{% endif %}
   preload="none"
   poster="{{ include.poster | relative_url }}"
   width="960"

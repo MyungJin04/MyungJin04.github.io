@@ -15,7 +15,7 @@ next_label: Hybrid Approach
 
 ## Why Imitation Learning?
 
-E2E driving을 처음 구현하기 위한 현실적인 learning approach로 Imitation Learning을 선택했다. 직접 demonstration data를 만들 수 있고, Reinforcement Learning보다 프로젝트 기간과 사용 가능한 하드웨어 안에서 주행 정책을 구현하기 적합했다.
+E2E와 learning-based driving을 처음 경험하기 위한 현실적인 첫 단계로 Imitation Learning을 선택했다. 직접 demonstration data를 만들 수 있고, Reinforcement Learning보다 프로젝트 기간과 사용 가능한 하드웨어 안에서 시도하기 적합했다.
 
 기본 주행 데이터는 Rule-based vehicle을 주행시켜 수집했다. Lattice보다 부드러운 장애물 회피 동작을 보여주기 위한 demonstration은 keyboard driving으로 추가했다. 모델은 경량 CNN을 사용했으며, architecture 자체보다 closed-loop 주행에서 나타나는 행동과 실패를 비교하는 데 초점을 두었다.
 
@@ -55,11 +55,15 @@ E2E driving을 처음 구현하기 위한 현실적인 learning approach로 Imit
 <div class="carla-callout">
   <small>Engineering Setback</small>
   <h3>SSD failure during long-running training</h3>
-  <p>학교 컴퓨터에서 장시간 학습하던 중 SSD failure가 발생해 당시 저장되어 있던 학습 데이터와 진행 결과가 손실되었다. 남은 기간에는 두 대의 개인 PC를 이용해 데이터 수집과 학습을 다시 진행했다.</p>
-  <p>이 사건은 주행 실패의 원인과는 별개의 research-workflow setback이다. 이후 dataset, model checkpoint, experiment result를 별도 저장소에 정기적으로 백업할 필요가 있었다.</p>
+  <p>장시간 학습을 위해 사용하던 학교 컴퓨터의 SSD가 고장 나면서 당시 로컬에 저장되어 있던 학습 데이터와 진행 결과가 손실되었다. 남은 기간에는 팀원과 각자의 PC를 이용해 데이터 수집과 학습을 다시 진행했다.</p>
+  <p>이 사건을 Imitation Learning의 주행 실패 원인으로 단정하지 않았다. 이후 dataset, model checkpoint, experiment result를 별도 저장소에 주기적으로 백업하는 workflow가 필요하다고 판단했다.</p>
 </div>
 
 <figure class="project-media">
   <img src="{{ '/assets/img/projects/carla/training_data_loss.webp' | relative_url }}" alt="Photograph of the school computer displaying an SSD I/O and critical medium error" width="1260" height="540" loading="lazy" decoding="async">
   <figcaption>당시 학교 컴퓨터에서 확인한 SSD I/O error. 제공된 프로젝트 발표 자료에 포함된 실제 사진을 crop해 사용했다.</figcaption>
 </figure>
+
+## Remaining Limitations
+
+Recovery demonstration을 추가했지만 limited data와 lightweight CNN이라는 조건에서 낯선 환경까지 일반화되는 정책을 만들지는 못했다. Town04에서는 장애물 대응 과정에서 manual stop으로 경로를 끝내지 못했고, Town03 반복 평가에서는 30회 모두 collision이 기록되었다. 이 결과는 [Evaluation under Unseen Conditions]({{ '/projects/01-carla-hybrid/unseen-evaluation/' | relative_url }})에서 다른 두 방식과 함께 비교했다.

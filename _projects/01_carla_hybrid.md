@@ -1,7 +1,7 @@
 ---
 layout: project
-title: "When Learning Fails: Rule-based, Imitation, and Hybrid Driving under Unseen Conditions in CARLA"
-subtitle: 낯선 환경에서 드러난 학습 기반 자율주행의 한계와 Hybrid 접근
+title: "From Rule-Based Driving to Imitation Learning: What Failed Under Unseen Conditions?"
+subtitle: CARLA에서 Rule-based, Imitation Learning, Hybrid 주행을 설계하고 낯선 환경에서 반복 평가한 프로젝트
 description: Rule-based, Imitation Learning, Hybrid 주행을 설계하고 CARLA의 낯선 환경에서 반복 평가한 연구 이야기.
 importance: 1
 year: 2026
@@ -26,20 +26,24 @@ resources: []
 
 {% include carla_chapter_nav.liquid current="overview" %}
 
-## Starting Questions
+## Research Questions
 
-<div class="carla-question-grid" aria-label="Project research questions">
+<div class="carla-question-grid carla-question-grid--three" aria-label="Project research questions">
   <div class="carla-question">
-    <small>Question 01</small>
+    <small>Initial Question</small>
     <p>Can learning-based driving be smoother than Rule-based driving?</p>
   </div>
   <div class="carla-question">
-    <small>Question 02</small>
-    <p>Can a lightweight imitation-learning policy generalize with limited data and hardware?</p>
+    <small>Second Question</small>
+    <p>Can a lightweight policy trained with limited data and hardware work in an unseen environment?</p>
+  </div>
+  <div class="carla-question">
+    <small>After Evaluation</small>
+    <p>When does learning-based driving fail, and how can those failures be evaluated and reduced?</p>
   </div>
 </div>
 
-## From Rule-based Driving to a Comparative Study
+## Why This Project?
 
 [2025 HL FMA Simulation]({{ '/projects/05-hlfma-sim-2025/' | relative_url }})에서 Pure Pursuit과 Lattice를 이용한 Rule-based autonomous driving을 경험했다. 비교적 안정적으로 주행했지만 일부 상황의 움직임은 경직되어 보였다. 당시 E2E autonomous driving이 주요 연구 방향으로 발전하고 있었고, learning-based driving을 직접 경험하기 위한 현실적인 시작점으로 Imitation Learning을 선택했다.
 
@@ -47,12 +51,15 @@ resources: []
 
 따라서 하나의 방법을 완성하는 대신 프로젝트 시작 단계에서 세 가지 접근을 같은 조건에서 비교하도록 설계했다.
 
-<div class="carla-approach-grid" aria-label="Compared driving approaches">
+## Three Approaches
+
+<div class="carla-approach-grid carla-approach-grid--three" aria-label="Compared driving approaches">
   <div class="carla-approach"><h3>Rule-based</h3><p>Pure Pursuit과 Lattice를 이용한 기준 주행</p></div>
   <div class="carla-approach"><h3>Imitation Learning</h3><p>직접 수집한 demonstration data로 학습한 경량 정책</p></div>
   <div class="carla-approach"><h3>Hybrid</h3><p>학습 기반 주행과 Rule-based reference 및 fallback의 결합</p></div>
-  <div class="carla-approach"><h3>Repeated Evaluation</h3><p>낯선 환경에서 각 방식 30회 반복 평가와 실패 분석</p></div>
 </div>
+
+세 접근은 개발 환경인 Town04에서 구현한 뒤, 개발에 사용하지 않은 Town03에서 obstacle placement를 바꾸며 각각 30회 반복 평가했다.
 
 ## Project Timeline
 
@@ -61,6 +68,19 @@ resources: []
   <div><strong>Apr. 2026</strong><span>Rule-based driving</span></div>
   <div><strong>May 2026</strong><span>Imitation Learning</span></div>
   <div><strong>Jun. 2026</strong><span>Hybrid + unseen-condition evaluation</span></div>
+</div>
+
+## Final Result Preview
+
+<div class="carla-result-grid" aria-label="Collision-free runs out of 30 under unseen conditions">
+  <div><small>Rule-based</small><strong>23 / 30</strong><span>collision-free runs</span></div>
+  <div><small>Hybrid</small><strong>20 / 30</strong><span>collision-free runs</span></div>
+  <div><small>Imitation Learning</small><strong>0 / 30</strong><span>collision-free runs</span></div>
+</div>
+
+<div class="carla-callout carla-callout--plain">
+  <small>Unseen-condition evaluation</small>
+  <p>Hybrid improved over Imitation Learning, but did not outperform the Rule-based baseline. <a href="{{ '/projects/01-carla-hybrid/unseen-evaluation/' | relative_url }}">See Evaluation →</a></p>
 </div>
 
 ## Read the Research Story

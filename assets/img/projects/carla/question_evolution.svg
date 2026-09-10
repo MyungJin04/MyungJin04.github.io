@@ -1,44 +1,49 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" role="img" aria-labelledby="title desc">
-  <title id="title">Question evolution timeline</title>
-  <desc id="desc">The project moved from rule-based driving to imitation learning, hybrid driving, repeated evaluation, failure analysis, and questions about generalization and safety.</desc>
+  <title id="title">Question evolution</title>
+  <desc id="desc">The project moved from a question about smoother learning-based driving through a three-method experiment and repeated evaluation to questions about failure under unseen conditions.</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#245a73"/></marker>
   </defs>
   <rect width="960" height="430" fill="#ffffff"/>
   <g font-family="Inter, Noto Sans KR, Arial, sans-serif">
-    <text x="45" y="52" fill="#18212b" font-size="25" font-weight="600">Question Evolution Timeline</text>
-    <text x="45" y="81" fill="#5d6772" font-size="15">Implementation steps gradually changed the question being asked.</text>
+    <text x="45" y="52" fill="#18212b" font-size="25" font-weight="600">Question Evolution</text>
+    <text x="45" y="81" fill="#5d6772" font-size="15">Repeated evaluation changed the question being asked.</text>
     <g text-anchor="middle">
-      <rect x="35" y="125" width="130" height="92" rx="7" fill="#f5f7f8" stroke="#dce2e7"/>
-      <text x="100" y="163" fill="#18212b" font-size="16" font-weight="600">Rule-based</text>
-      <text x="100" y="188" fill="#5d6772" font-size="13">baseline</text>
-      <rect x="187" y="125" width="130" height="92" rx="7" fill="#f5f7f8" stroke="#dce2e7"/>
-      <text x="252" y="163" fill="#18212b" font-size="16" font-weight="600">Imitation</text>
-      <text x="252" y="188" fill="#5d6772" font-size="13">learning</text>
-      <rect x="339" y="125" width="130" height="92" rx="7" fill="#eaf2f5" stroke="#b9ccd5"/>
-      <text x="404" y="163" fill="#18212b" font-size="16" font-weight="600">Hybrid</text>
-      <text x="404" y="188" fill="#5d6772" font-size="13">comparison</text>
-      <rect x="491" y="125" width="130" height="92" rx="7" fill="#eaf2f5" stroke="#b9ccd5"/>
-      <text x="556" y="158" fill="#18212b" font-size="15" font-weight="600">Repeated</text>
-      <text x="556" y="181" fill="#18212b" font-size="15" font-weight="600">Evaluation</text>
-      <rect x="643" y="125" width="130" height="92" rx="7" fill="#eaf2f5" stroke="#b9ccd5"/>
-      <text x="708" y="158" fill="#18212b" font-size="15" font-weight="600">Failure</text>
-      <text x="708" y="181" fill="#18212b" font-size="15" font-weight="600">Analysis</text>
-      <rect x="795" y="125" width="130" height="92" rx="7" fill="#245a73"/>
-      <text x="860" y="158" fill="#ffffff" font-size="15" font-weight="600">Generalization</text>
-      <text x="860" y="181" fill="#ffffff" font-size="15" font-weight="600">&amp; Safety</text>
+      <rect x="35" y="124" width="162" height="126" rx="7" fill="#f5f7f8" stroke="#dce2e7"/>
+      <text x="116" y="151" fill="#245a73" font-size="12" font-weight="700">START</text>
+      <text x="116" y="182" fill="#18212b" font-size="15" font-weight="600">Smoother than</text>
+      <text x="116" y="205" fill="#18212b" font-size="15" font-weight="600">Rule-based?</text>
+
+      <rect x="217" y="124" width="162" height="126" rx="7" fill="#f5f7f8" stroke="#dce2e7"/>
+      <text x="298" y="151" fill="#245a73" font-size="12" font-weight="700">EXPERIMENT</text>
+      <text x="298" y="181" fill="#18212b" font-size="14" font-weight="600">Rule-based · Imitation</text>
+      <text x="298" y="204" fill="#18212b" font-size="14" font-weight="600">· Hybrid</text>
+
+      <rect x="399" y="124" width="162" height="126" rx="7" fill="#eaf2f5" stroke="#b9ccd5"/>
+      <text x="480" y="151" fill="#245a73" font-size="12" font-weight="700">OBSERVATION</text>
+      <text x="480" y="179" fill="#18212b" font-size="14" font-weight="600">Good demos still failed</text>
+      <text x="480" y="202" fill="#18212b" font-size="14" font-weight="600">after conditions changed</text>
+
+      <rect x="581" y="124" width="162" height="126" rx="7" fill="#eaf2f5" stroke="#b9ccd5"/>
+      <text x="662" y="151" fill="#245a73" font-size="12" font-weight="700">NEW QUESTION</text>
+      <text x="662" y="179" fill="#18212b" font-size="14" font-weight="600">When and why</text>
+      <text x="662" y="202" fill="#18212b" font-size="14" font-weight="600">does it fail?</text>
+
+      <rect x="763" y="124" width="162" height="126" rx="7" fill="#245a73"/>
+      <text x="844" y="151" fill="#ffffff" font-size="12" font-weight="700">NEXT INTEREST</text>
+      <text x="844" y="179" fill="#ffffff" font-size="14" font-weight="600">Evaluate and reduce</text>
+      <text x="844" y="202" fill="#ffffff" font-size="14" font-weight="600">failures systematically</text>
     </g>
     <g stroke="#245a73" stroke-width="2" marker-end="url(#arrow)">
-      <path d="M165 171H177"/><path d="M317 171H329"/><path d="M469 171H481"/><path d="M621 171H633"/><path d="M773 171H785"/>
+      <path d="M197 187H207"/><path d="M379 187H389"/><path d="M561 187H571"/><path d="M743 187H753"/>
     </g>
-    <path d="M100 260H860" stroke="#dce2e7" stroke-width="2"/>
-    <circle cx="100" cy="260" r="6" fill="#245a73"/><circle cx="480" cy="260" r="6" fill="#245a73"/><circle cx="860" cy="260" r="6" fill="#245a73"/>
-    <text x="100" y="295" fill="#245a73" font-size="13" font-weight="700" text-anchor="middle">INITIAL</text>
-    <text x="100" y="325" fill="#18212b" font-size="16" text-anchor="middle">Smoother driving?</text>
-    <text x="480" y="295" fill="#245a73" font-size="13" font-weight="700" text-anchor="middle">AFTER EXPERIMENT</text>
-    <text x="480" y="325" fill="#18212b" font-size="16" text-anchor="middle">Why does it fail after change?</text>
-    <text x="860" y="295" fill="#245a73" font-size="13" font-weight="700" text-anchor="middle">CURRENT</text>
-    <text x="860" y="318" fill="#18212b" font-size="15" text-anchor="middle">How can failure be</text>
-    <text x="860" y="341" fill="#18212b" font-size="15" text-anchor="middle">detected and reduced?</text>
+    <path d="M116 303H844" stroke="#dce2e7" stroke-width="2"/>
+    <circle cx="116" cy="303" r="6" fill="#245a73"/>
+    <circle cx="480" cy="303" r="6" fill="#245a73"/>
+    <circle cx="844" cy="303" r="6" fill="#245a73"/>
+    <text x="116" y="340" fill="#18212b" font-size="15" text-anchor="middle">Natural driving?</text>
+    <text x="480" y="340" fill="#18212b" font-size="15" text-anchor="middle">Failure after change</text>
+    <text x="844" y="330" fill="#18212b" font-size="15" text-anchor="middle">Systematic evaluation</text>
+    <text x="844" y="353" fill="#18212b" font-size="15" text-anchor="middle">and reduction</text>
   </g>
 </svg>
