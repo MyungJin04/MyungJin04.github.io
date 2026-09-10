@@ -7,7 +7,7 @@
   </defs>
   <rect width="960" height="500" fill="#ffffff"/>
   <g font-family="Inter, Noto Sans KR, Arial, sans-serif">
-    <text x="45" y="48" fill="#18212b" font-size="23" font-weight="600">Collision-free does not always mean drivable</text>
+    <text x="45" y="48" fill="#18212b" font-size="23" font-weight="600">A collision-free path is not necessarily drivable.</text>
     <rect x="35" y="80" width="430" height="370" rx="8" fill="#ffffff" stroke="#e2cfc7"/>
     <text x="60" y="116" fill="#8b4d37" font-size="15" font-weight="700" letter-spacing="1">WITHOUT ROAD CONSTRAINT</text>
     <rect x="115" y="140" width="270" height="270" fill="#e6eaed"/>
