@@ -1,7 +1,7 @@
 ---
 layout: carla_chapter
 title: Imitation Learning
-subtitle: Demonstration data에서 빠져 있던 recovery behavior를 찾아 보완한 과정
+subtitle: 주행 시연 데이터에서 빠져 있던 복귀 행동을 찾아 보완한 과정
 description: CARLA imitation-learning data collection, recovery driving data, and training workflow setback.
 permalink: /projects/01-carla-hybrid/imitation-learning/
 nav: false
@@ -15,9 +15,9 @@ next_label: Hybrid Approach
 
 ## Why Imitation Learning?
 
-E2E와 learning-based driving을 처음 경험하기 위한 현실적인 첫 단계로 Imitation Learning을 선택했다. 직접 demonstration data를 만들 수 있고, Reinforcement Learning보다 프로젝트 기간과 사용 가능한 하드웨어 안에서 시도하기 적합했다.
+E2E와 학습 기반 주행을 처음 경험하기 위한 현실적인 첫 단계로 Imitation Learning을 선택했다. 직접 주행 시연 데이터를 만들 수 있고, Reinforcement Learning보다 프로젝트 기간과 사용 가능한 하드웨어 안에서 시도하기 적합했다.
 
-기본 주행 데이터는 Rule-based vehicle을 주행시켜 수집했다. Lattice보다 부드러운 장애물 회피 동작을 보여주기 위한 demonstration은 keyboard driving으로 추가했다. 모델은 경량 CNN을 사용했으며, architecture 자체보다 closed-loop 주행에서 나타나는 행동과 실패를 비교하는 데 초점을 두었다.
+기본 주행 데이터는 Rule-based vehicle을 주행시켜 수집했다. Lattice보다 부드러운 장애물 회피 동작을 보여주기 위한 시연은 keyboard 조작으로 추가했다. 모델은 경량 CNN을 사용했으며, 모델 구조 자체보다 폐루프 주행에서 나타나는 행동과 실패를 비교하는 데 초점을 두었다.
 
 <figure class="project-media project-media--concept">
   <span class="concept-label">Conceptual Diagram</span>
@@ -27,22 +27,22 @@ E2E와 learning-based driving을 처음 경험하기 위한 현실적인 첫 단
 
 ## Problem — No Recovery Behavior in the Dataset
 
-정상 주행 데이터 위주로 학습한 모델은 차선에서 벗어나거나 yaw가 틀어진 뒤 정상 경로로 돌아오는 행동을 학습하지 못했다. 작은 초기 조향 오차가 누적되면 lane departure로 이어졌고, dataset 안에 복귀 과정이 없기 때문에 스스로 원래 경로를 회복하지 못했다.
+정상 주행 데이터 위주로 학습한 모델은 차선에서 벗어나거나 yaw가 틀어진 뒤 정상 경로로 돌아오는 행동을 학습하지 못했다. 작은 초기 조향 오차가 누적되면 차선 이탈로 이어졌고, 데이터셋 안에 복귀 과정이 없기 때문에 스스로 원래 경로를 회복하지 못했다.
 
 <div class="carla-figure-grid">
   <figure>
     <img src="{{ '/assets/img/projects/carla/imitation_lane_departure.webp' | relative_url }}" alt="CARLA vehicle outside the lane after imitation-learning lane departure" width="960" height="540" loading="lazy" decoding="async">
-    <figcaption><strong>Observed problem.</strong> lane departure 이후 도로 가장자리로 벗어난 실제 프로젝트 장면.</figcaption>
+    <figcaption><strong>관찰된 문제.</strong> 차선 이탈 이후 도로 가장자리로 벗어난 실제 프로젝트 장면.</figcaption>
   </figure>
   <figure>
     <img src="{{ '/assets/img/projects/carla/imitation_recovery.webp' | relative_url }}" alt="CARLA vehicle driving within the lane after adding recovery demonstrations" width="960" height="540" loading="lazy" decoding="async">
-    <figcaption><strong>Recovery-data run.</strong> recovery demonstration을 보강한 뒤 기록한 실제 프로젝트 장면.</figcaption>
+    <figcaption><strong>복귀 데이터 적용 주행.</strong> 복귀 주행 데이터를 보강한 뒤 기록한 실제 프로젝트 장면.</figcaption>
   </figure>
 </div>
 
 ## Solution — Add Recovery Driving Data
 
-다양한 yaw error와 lateral deviation 상태에서 차선 중앙으로 돌아오는 과정을 직접 수집했다. 정상 주행만 반복하는 대신, 편차가 생긴 상태와 복귀 조향을 dataset에 포함하고 <strong>54,000장의 recovery images</strong>를 추가했다.
+다양한 yaw error와 lateral deviation 상태에서 차선 중앙으로 돌아오는 과정을 직접 수집했다. 정상 주행만 반복하는 대신, 편차가 생긴 상태와 복귀 조향을 데이터셋에 포함하고 <strong>54,000장의 recovery images</strong>를 추가했다.
 
 <figure class="project-media project-media--concept">
   <span class="concept-label">Conceptual Diagram</span>
@@ -56,7 +56,7 @@ E2E와 learning-based driving을 처음 경험하기 위한 현실적인 첫 단
   <small>Engineering Setback</small>
   <h3>SSD failure during long-running training</h3>
   <p>장시간 학습을 위해 사용하던 학교 컴퓨터의 SSD가 고장 나면서 당시 로컬에 저장되어 있던 학습 데이터와 진행 결과가 손실되었다. 남은 기간에는 팀원과 각자의 PC를 이용해 데이터 수집과 학습을 다시 진행했다.</p>
-  <p>이 사건을 Imitation Learning의 주행 실패 원인으로 단정하지 않았다. 이후 dataset, model checkpoint, experiment result를 별도 저장소에 주기적으로 백업하는 workflow가 필요하다고 판단했다.</p>
+  <p>이 사건을 Imitation Learning의 주행 실패 원인으로 단정하지 않았다. 이후 데이터셋, model checkpoint, 실험 결과를 별도 저장소에 주기적으로 백업하는 절차가 필요하다고 판단했다.</p>
 </div>
 
 <figure class="project-media">
@@ -66,4 +66,4 @@ E2E와 learning-based driving을 처음 경험하기 위한 현실적인 첫 단
 
 ## Remaining Limitations
 
-Recovery demonstration을 추가했지만 limited data와 lightweight CNN이라는 조건에서 낯선 환경까지 일반화되는 정책을 만들지는 못했다. Town04에서는 장애물 대응 과정에서 manual stop으로 경로를 끝내지 못했고, Town03 반복 평가에서는 30회 모두 collision이 기록되었다. 이 결과는 [Evaluation under Unseen Conditions]({{ '/projects/01-carla-hybrid/unseen-evaluation/' | relative_url }})에서 다른 두 방식과 함께 비교했다.
+복귀 주행 데이터를 추가했지만 제한된 데이터와 경량 CNN이라는 조건에서 낯선 환경까지 일반화되는 정책을 만들지는 못했다. Town04에서는 장애물 대응 과정에서 수동으로 정지해 경로를 끝내지 못했고, Town03 반복 평가에서는 30회 모두 충돌이 기록되었다. 이 결과는 [Evaluation under Unseen Conditions]({{ '/projects/01-carla-hybrid/unseen-evaluation/' | relative_url }})에서 다른 두 방식과 함께 비교했다.

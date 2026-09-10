@@ -2,7 +2,7 @@
 layout: project
 title: "From Rule-Based Driving to Imitation Learning: What Failed Under Unseen Conditions?"
 subtitle: CARLA에서 Rule-based, Imitation Learning, Hybrid 주행을 설계하고 낯선 환경에서 반복 평가한 프로젝트
-description: Rule-based, Imitation Learning, Hybrid 주행을 설계하고 CARLA의 낯선 환경에서 반복 평가한 연구 이야기.
+description: Rule-based, Imitation Learning, Hybrid 자율주행을 구현하고 CARLA의 낯선 환경에서 각 방식을 30회 반복 평가한 프로젝트.
 importance: 1
 year: 2026
 selected: true
@@ -45,9 +45,9 @@ resources: []
 
 ## Why This Project?
 
-[2025 HL FMA Simulation]({{ '/projects/05-hlfma-sim-2025/' | relative_url }})에서 Pure Pursuit과 Lattice를 이용한 Rule-based autonomous driving을 경험했다. 비교적 안정적으로 주행했지만 일부 상황의 움직임은 경직되어 보였다. 당시 E2E autonomous driving이 주요 연구 방향으로 발전하고 있었고, learning-based driving을 직접 경험하기 위한 현실적인 시작점으로 Imitation Learning을 선택했다.
+[2025 HL FMA Simulation]({{ '/projects/05-hlfma-sim-2025/' | relative_url }})에서 Pure Pursuit과 Lattice를 이용한 Rule-based 자율주행을 경험했다. 비교적 안정적으로 주행했지만 일부 상황의 움직임은 경직되어 보였다. 당시 E2E 자율주행이 주요 연구 방향으로 발전하고 있었고, 학습 기반 주행을 직접 경험하기 위한 현실적인 시작점으로 Imitation Learning을 선택했다.
 
-직접 demonstration data를 수집할 수 있고 프로젝트 기간 안에 구현할 수 있다는 점이 선택의 배경이었다. 다만 데이터와 하드웨어가 제한적이고 경량 CNN을 사용하며 Reinforcement Learning까지 수행하지 않는 조건에서는, Imitation Learning이 낯선 환경까지 완전하게 일반화하지 않을 가능성을 처음부터 예상했다.
+직접 주행 시연 데이터를 수집할 수 있고 프로젝트 기간 안에 구현할 수 있다는 점이 선택의 배경이었다. 다만 데이터와 하드웨어가 제한적이고 경량 CNN을 사용하며 Reinforcement Learning까지 수행하지 않는 조건에서는, Imitation Learning이 낯선 환경까지 완전하게 일반화하지 않을 가능성을 처음부터 예상했다.
 
 따라서 하나의 방법을 완성하는 대신 프로젝트 시작 단계에서 세 가지 접근을 같은 조건에서 비교하도록 설계했다.
 
@@ -55,11 +55,11 @@ resources: []
 
 <div class="carla-approach-grid carla-approach-grid--three" aria-label="Compared driving approaches">
   <div class="carla-approach"><h3>Rule-based</h3><p>Pure Pursuit과 Lattice를 이용한 기준 주행</p></div>
-  <div class="carla-approach"><h3>Imitation Learning</h3><p>직접 수집한 demonstration data로 학습한 경량 정책</p></div>
+  <div class="carla-approach"><h3>Imitation Learning</h3><p>직접 수집한 주행 시연 데이터로 학습한 경량 정책</p></div>
   <div class="carla-approach"><h3>Hybrid</h3><p>학습 기반 주행과 Rule-based reference 및 fallback의 결합</p></div>
 </div>
 
-세 접근은 개발 환경인 Town04에서 구현한 뒤, 개발에 사용하지 않은 Town03에서 obstacle placement를 바꾸며 각각 30회 반복 평가했다.
+세 접근은 개발 환경인 Town04에서 구현한 뒤, 개발에 사용하지 않은 Town03에서 장애물 배치를 바꾸며 각각 30회 반복 평가했다.
 
 ## Project Timeline
 

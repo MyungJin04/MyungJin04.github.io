@@ -1,7 +1,7 @@
 ---
 layout: carla_chapter
 title: Evaluation under Unseen Conditions
-subtitle: 한 번의 성공적인 demo가 아니라 Town03의 무작위 장애물 배치에서 각 방식을 30회 평가
+subtitle: 한 번의 성공적인 시연이 아니라 Town03의 무작위 장애물 배치에서 각 방식을 30회 평가
 description: Repeated CARLA evaluation of rule-based, imitation-learning, and hybrid driving under unseen conditions.
 permalink: /projects/01-carla-hybrid/unseen-evaluation/
 nav: false
@@ -15,7 +15,7 @@ next_label: Failure Analysis
 
 ## From Town04 to Town03
 
-개발과 기존 조건 평가는 Town04에서 진행했다. 최종 일반화 평가는 Town03으로 환경을 바꾸고 obstacle placement를 무작위로 변경했다.
+개발과 기존 조건 평가는 Town04에서 진행했다. 최종 일반화 평가는 Town03으로 환경을 바꾸고 장애물 배치를 무작위로 변경했다.
 
 <figure class="project-media project-media--concept">
   <span class="concept-label">Conceptual Diagram</span>
@@ -25,12 +25,12 @@ next_label: Failure Analysis
 
 ## Why 30 Runs?
 
-한 번 잘 주행했다고 방법이 안정적이라고 결론 내릴 수 없다고 판단해 각 방법을 30회씩 반복했다. 초반 몇 번의 Rule-based와 Hybrid 주행은 문제가 없는 것처럼 보였지만, obstacle placement를 바꾸며 반복하자 특정 배치에서 failure가 나타났다.
+한 번 잘 주행했다고 방법이 안정적이라고 결론 내릴 수 없다고 판단해 각 방법을 30회씩 반복했다. 초반 몇 번의 Rule-based와 Hybrid 주행은 문제가 없는 것처럼 보였지만, 장애물 배치를 바꾸며 반복하자 특정 배치에서 실패가 나타났다.
 
-<!-- Source: simplescreenrecorder-2026-06-10_00.05.04.mkv; trim: 00:00:24–00:00:34; original preserved. -->
+<!-- Source: KakaoTalk_20260909_104923008.mp4; trim: 00:00:05–00:00:17; original preserved. -->
 <figure class="project-media">
-  {% include project_video.liquid src="/assets/video/projects/carla/hybrid_town04_demo.mp4" poster="/assets/img/projects/carla/hybrid_town04_poster.webp" aria_label="Town04 hybrid driving demonstration in CARLA" controls=true %}
-  <figcaption><strong>Representative Hybrid driving in Town04.</strong> Switching logic은 Hybrid chapter의 diagram에서 설명하며, 이 영상은 개발 환경에서의 vehicle behavior를 보여준다.</figcaption>
+  {% include project_video.liquid src="/assets/video/projects/carla/evaluation_town03.mp4" poster="/assets/img/projects/carla/evaluation_town03_poster.webp" aria_label="Unseen-condition evaluation in Town03 with randomized obstacle placement" controls=true %}
+  <figcaption><strong>Unseen-condition evaluation in Town03 with randomized obstacle placement.</strong> 개발에 사용하지 않은 CARLA 환경에서 장애물 배치를 변경하며 반복 평가한 실제 장면이다.</figcaption>
 </figure>
 
 ## Collision-free Runs under Unseen Conditions

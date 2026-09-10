@@ -25,7 +25,7 @@ next_label: Imitation Learning
 
 ## Problem — Returning Before the Obstacle Was Passed
 
-초기 회피 완료 조건은 “camera에서 장애물이 더 이상 보이지 않는가”에 의존했다. 장애물이 camera 시야에서 사라지면 이미 회피를 마쳤다고 판단했기 때문에, 차량이 장애물을 완전히 지나치기 전에 원래 waypoint path로 복귀하는 문제가 생겼다.
+초기 회피 완료 조건은 “camera에서 장애물이 더 이상 보이지 않는가”에 의존했다. 장애물이 camera 시야에서 사라지면 이미 회피를 마쳤다고 판단했기 때문에, 차량이 장애물을 완전히 지나치기 전에 원래 waypoint 경로로 복귀하는 문제가 생겼다.
 
 <figure class="project-media project-media--concept">
   <span class="concept-label">Conceptual Diagram</span>
@@ -35,9 +35,9 @@ next_label: Imitation Learning
 
 ## Fix — Tracking the Obstacle Relative to the Ego Vehicle
 
-장애물마다 `track_id`를 부여하고 local coordinate에서 ego vehicle과의 상대 위치를 추적했다. camera에서 보이지 않는지만 확인하는 대신, 장애물이 차량 뒤로 지나갔는지를 확인한 뒤 waypoint path로 복귀하도록 판단 기준을 변경했다.
+장애물마다 `track_id`를 부여하고 로컬 좌표계에서 ego vehicle과의 상대 위치를 추적했다. camera에서 보이지 않는지만 확인하는 대신, 장애물이 차량 뒤로 지나갔는지를 확인한 뒤 waypoint 경로로 복귀하도록 판단 기준을 변경했다.
 
-동일한 장애물 처리 방식만으로는 상황별 행동을 구분하기 어려워 motion state도 나눴다.
+동일한 장애물 처리 방식만으로는 상황별 행동을 구분하기 어려워 동작 상태도 나눴다.
 
 <div class="carla-state-grid" aria-label="Obstacle motion states and vehicle behavior">
   <div class="carla-state"><h3>STATIC</h3><p>정지 장애물 · Lattice 회피</p></div>
@@ -52,6 +52,6 @@ next_label: Imitation Learning
 
 <!-- Source: 585471514-9653dc23-5306-4e5c-a1d0-36722e1f2732.mp4; trim: 00:01:16–00:01:30; original preserved. -->
 <figure class="project-media">
-  {% include project_video.liquid src="/assets/video/projects/carla/rule_based_final_demo.mp4" poster="/assets/img/projects/carla/rule_based_final_poster.webp" aria_label="Final Rule-based driving with CARLA and RViz visualization" controls=true %}
-  <figcaption>최종 Rule-based 주행. CARLA에서 waypoint를 추종하며, RViz에서 인식된 객체와 reference path를 함께 확인할 수 있다.</figcaption>
+  {% include project_video.liquid src="/assets/video/projects/carla/rule_based_final.mp4" poster="/assets/img/projects/carla/rule_based_final_poster.webp" aria_label="Final Rule-based driving with CARLA and RViz visualization" controls=true %}
+  <figcaption>Final Rule-based driving in CARLA with RViz visualization.</figcaption>
 </figure>
