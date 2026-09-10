@@ -29,7 +29,7 @@ next_label: Failure Analysis
 
 <!-- Source: KakaoTalk_20260909_104923008.mp4; trim: 00:00:05–00:00:17; original preserved. -->
 <figure class="project-media">
-  {% include project_video.liquid src="/assets/video/projects/carla/evaluation_town03.mp4" poster="/assets/img/projects/carla/evaluation_town03_poster.webp" aria_label="Unseen-condition evaluation in Town03 with randomized obstacle placement" controls=true %}
+  {% include project_video.liquid src="/assets/video/projects/carla/hybrid_town04.mp4?v=20260910-15x" poster="/assets/img/projects/carla/hybrid_town04_poster.webp" aria_label="Unseen-condition evaluation in Town03 with randomized obstacle placement" controls=true %}
   <figcaption><strong>Unseen-condition evaluation in Town03 with randomized obstacle placement.</strong> 개발에 사용하지 않은 CARLA 환경에서 장애물 배치를 변경하며 반복 평가한 실제 장면이다.</figcaption>
 </figure>
 

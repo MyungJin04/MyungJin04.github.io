@@ -35,7 +35,7 @@ Rule-based planner는 reference와 fallback으로 사용했으며, 안전을 수
 
 <!-- Source: simplescreenrecorder-2026-06-10_00.05.04.mkv; trim: 00:00:24–00:00:34; original preserved. -->
 <figure class="project-media">
-  {% include project_video.liquid src="/assets/video/projects/carla/hybrid_town04.mp4" poster="/assets/img/projects/carla/hybrid_town04_poster.webp" aria_label="Representative Hybrid driving in Town04" controls=true %}
+  {% include project_video.liquid src="/assets/video/projects/carla/evaluation_town03.mp4?v=20260910-15x" poster="/assets/img/projects/carla/evaluation_town03_poster.webp" aria_label="Representative Hybrid driving in Town04" controls=true %}
   <figcaption><strong>Representative Hybrid driving in Town04.</strong> 개발 환경에서 주변 차량과 상호작용하며 주행하는 실제 장면이다. Hybrid의 switching 구조는 위 architecture diagram에서 설명한다.</figcaption>
 </figure>
 
