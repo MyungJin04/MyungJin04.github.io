@@ -27,10 +27,10 @@ next_label: Failure Analysis
 
 한 번 잘 주행했다고 방법이 안정적이라고 결론 내릴 수 없다고 판단해 각 방법을 30회씩 반복했다. 초반 몇 번의 Rule-based와 Hybrid 주행은 문제가 없는 것처럼 보였지만, obstacle placement를 바꾸며 반복하자 특정 배치에서 failure가 나타났다.
 
-<!-- Source: KakaoTalk_20260909_104923008.mp4; trim: 00:00:05–00:00:17; original preserved. -->
+<!-- Source: simplescreenrecorder-2026-06-10_00.05.04.mkv; trim: 00:00:24–00:00:34; original preserved. -->
 <figure class="project-media">
-  {% include project_video.liquid src="/assets/video/projects/carla/unseen_town03_demo.mp4" poster="/assets/img/projects/carla/unseen_town03_poster.webp" aria_label="Driving evaluation in unseen Town03 with randomized obstacle placement" controls=true %}
-  <figcaption>Town03 반복 평가 장면. 개발에 사용하지 않은 CARLA 환경에서 obstacle placement를 바꾸어 평가했으며, 이 구간에서는 대각선 차량과의 상호작용을 확인할 수 있다.</figcaption>
+  {% include project_video.liquid src="/assets/video/projects/carla/hybrid_town04_demo.mp4" poster="/assets/img/projects/carla/hybrid_town04_poster.webp" aria_label="Town04 hybrid driving demonstration in CARLA" controls=true %}
+  <figcaption><strong>Representative Hybrid driving in Town04.</strong> Switching logic은 Hybrid chapter의 diagram에서 설명하며, 이 영상은 개발 환경에서의 vehicle behavior를 보여준다.</figcaption>
 </figure>
 
 ## Collision-free Runs under Unseen Conditions

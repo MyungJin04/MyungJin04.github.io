@@ -33,10 +33,10 @@ Imitation Learning이 기본적으로 차량을 주행하는 동안 Rule-based p
 
 Rule-based planner는 reference와 fallback으로 사용했으며, formal safety guarantee를 제공하는 구조로 해석하지 않았다.
 
-<!-- Source: simplescreenrecorder-2026-06-10_00.05.04.mkv; trim: 00:00:24–00:00:34; original preserved. -->
+<!-- Source: KakaoTalk_20260909_104923008.mp4; trim: 00:00:05–00:00:17; original preserved. -->
 <figure class="project-media">
-  {% include project_video.liquid src="/assets/video/projects/carla/hybrid_town04_demo.mp4" poster="/assets/img/projects/carla/hybrid_town04_poster.webp" aria_label="Town04 hybrid driving demonstration in CARLA" controls=true %}
-  <figcaption><strong>Representative Hybrid driving in Town04.</strong> Switching logic은 위 diagram에서 설명하며, 이 영상은 개발 환경에서의 vehicle behavior를 보여준다.</figcaption>
+  {% include project_video.liquid src="/assets/video/projects/carla/unseen_town03_demo.mp4" poster="/assets/img/projects/carla/unseen_town03_poster.webp" aria_label="Driving evaluation in unseen Town03 with randomized obstacle placement" controls=true %}
+  <figcaption>Town03 반복 평가 장면. 개발에 사용하지 않은 CARLA 환경에서 obstacle placement를 바꾸어 평가했으며, 이 구간에서는 대각선 차량과의 상호작용을 확인할 수 있다.</figcaption>
 </figure>
 
 <div class="carla-callout carla-callout--plain">
