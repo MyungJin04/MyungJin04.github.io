@@ -15,33 +15,25 @@ next_label: Mission Integration & Result
 
 ## Observation — Acceleration Before Stabilization
 
-S-curve의 변곡점과 출구에서 차량이 갑자기 가속한 뒤 횡방향 오차가 커지고 좌우로 흔들리는 문제가 나타났다. 전방 영상에서는 도로가 잠시 직선처럼 보였지만, 차량의 heading과 횡방향 위치는 아직 다음 곡선에 맞게 안정되지 않은 상태였다.
+실차 튜닝 과정에서 S-curve의 변곡점과 curve exit 부근에서 차량이 아직 곡선을 따라 정렬되는 중인데도 잠깐 `Straight` state로 전환되며 가속하는 현상을 관찰했다. 전방 도로는 순간적으로 직선처럼 보였지만, 차량의 heading과 횡방향 위치는 다음 곡선에 맞게 안정되지 않은 상태였다.
+
+### Actual S-Curve Driving Context
 
 <!-- Source: drive_diag_20260821_162803 rosbag; source time: 00:01:36.200–00:01:43.800; this is the actual S-curve immediately after the Lane-page clip. -->
 <figure class="project-media">
-  {% include project_video.liquid src="/assets/video/projects/kookmin/scurve_state_failure.mp4" poster="/assets/img/projects/kookmin/scurve_state_failure_poster.webp" aria_label="Source-synchronized replay of an actual S-curve vehicle run" controls=true %}
-  <figcaption><strong>Offline rosbag replay analysis.</strong> Lane 페이지 영상 직후 이어지는 실제 S자 주행. Camera, YOLO 중앙선 검출과 center path에 같은 시점의 상태 및 제어 명령을 함께 표시했다.</figcaption>
+  {% include project_video.liquid src="/assets/video/projects/kookmin/scurve_state_failure.mp4" poster="/assets/img/projects/kookmin/scurve_state_failure_poster.webp" aria_label="Actual S-curve driving context from the real vehicle test" controls=true %}
+  <figcaption><strong>Actual S-Curve Driving Context.</strong> 문제를 분석한 S자 구간의 실제 주행 장면. 도로 형상과 차량 거동을 보여주기 위한 영상이며, brief `Straight` transition 자체의 직접 증거로 사용하지 않는다.</figcaption>
 </figure>
 
-## Trace the Chain in rosbag
+## What the Logs Showed
 
-인지 결과, lane-control state, 횡방향 오차, heading, 속도 명령, 조향 명령을 같은 source time에 맞춰 다시 확인했다. Lane 영상이 끝나는 96.20초부터 S자 구간이 시작되며, 96.58초에 `Curve`로 전환된 뒤 연속 곡선이 끝날 때까지 `Straight`로 다시 바뀌지 않았다. CTE와 heading, 조향 명령의 부호가 순서대로 바뀌는 모습에서도 좌우 곡선이 이어지는 실제 S자 주행을 확인할 수 있다.
+영상만으로는 짧은 상태 전환의 원인을 확인하기 어려워 rosbag에서 lane-control state, speed command, CTE, heading, steering command를 같은 시간축으로 비교했다. brief `Straight` transition 자체가 영상이나 아래 그래프에 직접 기록된 것은 아니므로, 이 자료를 해당 순간의 증거로 사용하지 않았다.
 
-아래 세 그래프는 영상과 동일한 실제 S자 주행 rosbag의 96.20–103.80초를 같은 source time으로 정렬한 분석이다. 옅은 파란색 구간은 `Curve` 상태가 유지된 구간이며, 회색 점선은 S자 진입 시점의 상태 전환을 나타낸다.
-
-<figure class="project-media">
-  <img src="{{ '/assets/img/projects/kookmin/scurve_state_speed_timeline.webp' | relative_url }}" alt="Offline rosbag timeline of lane state and speed command through the actual S-curve" width="1121" height="623" loading="lazy" decoding="async">
-  <figcaption><strong>Offline rosbag replay analysis.</strong> 96.58초에 `Curve`로 전환된 뒤 실제 S자 구간이 끝날 때까지 짧은 `Straight` 전환 없이 상태가 유지된다.</figcaption>
-</figure>
+CTE와 heading은 S자 구간을 지나는 동안 큰 폭으로 계속 변했다. 이는 전방 도로가 잠시 직선처럼 보이는 순간에도 차량은 직진 주행이 가능할 만큼 정렬된 상태가 아니었음을 보여준다.
 
 <figure class="project-media">
   <img src="{{ '/assets/img/projects/kookmin/scurve_cte_heading_timeline.webp' | relative_url }}" alt="Offline rosbag timeline of cross-track error and heading through consecutive S-curve bends" width="1116" height="623" loading="lazy" decoding="async">
-  <figcaption><strong>Offline rosbag replay analysis.</strong> 연속된 좌우 곡선에서 CTE와 heading의 방향이 바뀌는 실제 S자 주행 상태.</figcaption>
-</figure>
-
-<figure class="project-media">
-  <img src="{{ '/assets/img/projects/kookmin/scurve_steering_timeline.webp' | relative_url }}" alt="Offline rosbag timeline of alternating steering commands through the actual S-curve" width="1101" height="623" loading="lazy" decoding="async">
-  <figcaption><strong>Offline rosbag replay analysis.</strong> 연속 곡선의 방향 변화에 따라 조향 명령의 부호가 음→양→음으로 바뀐다.</figcaption>
+  <figcaption><strong>Offline rosbag replay analysis.</strong> CTE and heading were still changing substantially through the S-curve, showing that the vehicle had not yet stabilized for straight driving.</figcaption>
 </figure>
 
 ## Fix — Delay the State Transition
@@ -54,4 +46,13 @@ S-curve의 변곡점과 출구에서 차량이 갑자기 가속한 뒤 횡방향
   <figcaption>관찰한 상태 전환과 실제 적용한 약 0.2초 hold를 정리한 도식.</figcaption>
 </figure>
 
-수정 후 실차 재주행에서는 같은 조기 가속과 흔들림이 다시 나타나지 않았다. 이 사례에서 핵심은 “도로가 직선으로 보임”과 “차량이 안정됨”을 같은 조건으로 취급하지 않는 것이었다.
+## Verification After the Fix
+
+약 0.2초 `Curve`-state hold를 적용한 뒤 실차로 다시 주행했다. Lane 영상이 끝나는 96.20초부터 이어지는 S자 구간에서 96.58초에 `Curve`로 전환되었고, 이후 연속 곡선이 끝날 때까지 상태가 유지되었다. 이전에 관찰했던 짧은 `Straight` transition은 이 재주행에서 다시 나타나지 않았다.
+
+<figure class="project-media">
+  <img src="{{ '/assets/img/projects/kookmin/scurve_state_speed_timeline.webp' | relative_url }}" alt="Post-fix offline rosbag timeline showing Curve state maintained through the actual S-curve" width="1121" height="623" loading="lazy" decoding="async">
+  <figcaption><strong>Offline rosbag replay analysis.</strong> After the fix, `Curve` state remained active through the S-curve.</figcaption>
+</figure>
+
+이 사례의 핵심은 “앞 도로가 직선으로 보인다”는 것과 “차량이 직진 주행이 가능할 만큼 안정화되었다”는 것을 같은 조건으로 취급하지 않는 것이었다.
