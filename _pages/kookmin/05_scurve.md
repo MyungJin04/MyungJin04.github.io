@@ -33,7 +33,7 @@ next_label: Mission Integration & Result
 
 <figure class="project-media">
   {% include project_video.liquid src="/assets/video/projects/kookmin/scurve_cte_heading_timeline.mp4" poster="/assets/img/projects/kookmin/scurve_cte_heading_timeline.webp" aria_label="Animated offline rosbag plot showing CTE and heading continuing to change through the S-curve" %}
-  <figcaption><strong>Offline rosbag replay analysis · Vehicle not yet stabilized.</strong> 실제 CTE와 heading이 S자 구간에서 계속 변하는 모습을 시간 순서로 표시했다. brief <code>Straight</code> transition의 직접 증거가 아니라, 차량이 아직 직진 주행을 할 만큼 안정화되지 않았음을 보여주는 자료다.</figcaption>
+  <figcaption><strong>Offline rosbag replay analysis.</strong> S자 구간을 통과하는 동안 CTE와 heading이 계속 크게 변했다. 차량이 아직 곡선 주행에서 벗어나 직진 주행 상태로 정렬되지 않았음을 보여준다.</figcaption>
 </figure>
 
 ## Fix — Delay the State Transition
