@@ -17,39 +17,32 @@ next_label: Mission Integration & Result
 
 S-curve의 변곡점과 출구에서 차량이 갑자기 가속한 뒤 횡방향 오차가 커지고 좌우로 흔들리는 문제가 나타났다. 전방 영상에서는 도로가 잠시 직선처럼 보였지만, 차량의 heading과 횡방향 위치는 아직 다음 곡선에 맞게 안정되지 않은 상태였다.
 
-<!-- Source: 룩어헤드 변함 v2 s자 차선이탈_08_06.mp4; trim: 00:12–00:24; crop: Centerlane Tracer window; original preserved. -->
+<!-- Source: drive_diag_20260821_124059 rosbag; source time: 00:00:38.500–00:00:42.764; actual Camera and synchronized diagnostics. -->
 <figure class="project-media">
-  {% include project_video.liquid src="/assets/video/projects/kookmin/scurve_state_failure.mp4" poster="/assets/img/projects/kookmin/scurve_state_failure_poster.webp" aria_label="Recorded S-curve state transition failure during real vehicle testing" controls=true %}
-  <figcaption><strong>Observed S-curve failure.</strong> 실제 실차 주행에서 Camera 경로와 `Straight`/`Curve` 상태가 바뀌는 구간. 원본 desktop 녹화에서 관련 창만 crop했다.</figcaption>
+  {% include project_video.liquid src="/assets/video/projects/kookmin/scurve_state_failure.mp4" poster="/assets/img/projects/kookmin/scurve_state_failure_poster.webp" aria_label="Source-synchronized replay of an actual S-curve vehicle run" controls=true %}
+  <figcaption><strong>Offline rosbag replay analysis.</strong> 실제 S자 연속 곡선 주행의 Camera와 center path. 같은 주행의 `Straight`/`Curve` 상태와 제어 명령은 아래 그래프에 source time으로 정렬했다.</figcaption>
 </figure>
 
 ## Trace the Chain in rosbag
 
-인지 결과, lane-control state, 횡방향 오차, heading, 속도 명령, 조향 명령을 같은 source time에 맞춰 다시 확인했다. 변곡점에서 차량이 안정되기 전에 `Straight`로 분류된 약 0.2초 구간이 있었고, 이 상태 전환이 속도 증가와 이어졌다.
+인지 결과, lane-control state, 횡방향 오차, heading, 속도 명령, 조향 명령을 같은 source time에 맞춰 다시 확인했다. S-curve로 이어지는 변곡 구간에서 `Straight` 상태가 유지되는 동안 속도 명령이 증가했지만, CTE와 heading 관련 상태는 아직 안정되지 않았다.
+
+아래 세 그래프는 실제 S자 주행 rosbag의 38.40–40.20초를 같은 source time으로 정렬한 분석이다. 옅은 노란색 구간은 `Straight` 상태가 유지된 구간이며, 회색 점선 뒤에서 `Curve` 상태가 다시 시작된다.
 
 <figure class="project-media">
-  <img src="{{ '/assets/img/projects/kookmin/scurve_camera_sequence.webp' | relative_url }}" alt="Consecutive real vehicle camera frames with reconstructed center path, cross-track error, and steering command" width="1200" height="676" loading="lazy" decoding="async">
-  <figcaption><strong>Offline rosbag replay analysis.</strong> 실제 Camera frame에 center path, CTE와 steering command를 시간 순서로 맞춘 분석 결과.</figcaption>
-</figure>
-
-아래 세 패널은 모두 개선 전 주행을 offline rosbag replay로 정렬한 분석이다. 녹색 점선은 제어기가 활성화된 첫 frame, 보라색 점선은 짧게 `Straight`로 판단된 구간의 시작을 나타낸다.
-
-<figure class="project-media">
-  <img src="{{ '/assets/img/projects/kookmin/scurve_analysis_speed_command.webp' | relative_url }}" alt="Offline rosbag analysis panel of speed command, CTE gain, and heading weight around the brief Straight-state transition" width="1225" height="640" loading="lazy" decoding="async">
-  <figcaption><strong>Offline rosbag replay analysis.</strong> 제어 상태 전환 구간의 속도 명령과 CTE 및 heading gain 변화.</figcaption>
+  <img src="{{ '/assets/img/projects/kookmin/scurve_state_speed_timeline.webp' | relative_url }}" alt="Offline rosbag timeline of lane state and speed command before the S-curve Curve state resumes" width="1085" height="623" loading="lazy" decoding="async">
+  <figcaption><strong>Offline rosbag replay analysis.</strong> 차량 상태가 `Straight`로 남아 있는 동안 속도 명령이 증가한 뒤 `Curve` 상태가 다시 시작된다.</figcaption>
 </figure>
 
 <figure class="project-media">
-  <img src="{{ '/assets/img/projects/kookmin/scurve_analysis_lateral_target.webp' | relative_url }}" alt="Offline rosbag analysis panel comparing reconstructed lateral error and the LaneControlState target used as Stanley CTE input" width="1225" height="675" loading="lazy" decoding="async">
-  <figcaption><strong>Offline rosbag replay analysis.</strong> 복원한 횡방향 오차와 Stanley CTE 입력으로 사용된 LaneControlState target의 변화.</figcaption>
+  <img src="{{ '/assets/img/projects/kookmin/scurve_cte_heading_timeline.webp' | relative_url }}" alt="Offline rosbag timeline of cross-track error and heading during the S-curve state transition" width="1116" height="623" loading="lazy" decoding="async">
+  <figcaption><strong>Offline rosbag replay analysis.</strong> `Straight` 상태가 유지되는 동안 CTE가 남아 있고 heading도 계속 변해 차량 정렬이 끝나지 않았음을 보여준다.</figcaption>
 </figure>
 
 <figure class="project-media">
-  <img src="{{ '/assets/img/projects/kookmin/scurve_analysis_steering_command.webp' | relative_url }}" alt="Offline rosbag analysis panel decomposing heading and CTE terms in the steering command" width="1225" height="660" loading="lazy" decoding="async">
-  <figcaption><strong>Offline rosbag replay analysis.</strong> heading term과 CTE term이 합쳐진 조향 명령의 변화.</figcaption>
+  <img src="{{ '/assets/img/projects/kookmin/scurve_steering_timeline.webp' | relative_url }}" alt="Offline rosbag timeline of the steering command before and after the Curve state resumes" width="1101" height="623" loading="lazy" decoding="async">
+  <figcaption><strong>Offline rosbag replay analysis.</strong> `Curve` 상태가 다시 시작되기 전에도 조향 명령의 방향과 크기가 계속 변한다.</figcaption>
 </figure>
-
-<p class="carla-metric-note"><a href="{{ '/assets/img/projects/kookmin/oscillation_evidence_chain.webp' | relative_url }}">View full analysis ↗</a></p>
 
 ## Fix — Delay the State Transition
 

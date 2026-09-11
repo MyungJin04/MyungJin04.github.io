@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
   <title id="title">Kookmin competition autonomous driving system overview</title>
-  <desc id="desc">Camera and LiDAR inputs flow through lane, object, and cone perception, Mission Manager, tracking controllers, and XYCAR control. Mission branches include lane, cone, obstacles, traffic light, left turn, and shortcut.</desc>
+  <desc id="desc">Camera and LiDAR jointly confirm cone-course entry. After entry, LiDAR supplies left and right cone clusters for midpoint path generation and Pure Pursuit tracking. Other perception outputs flow through the Mission Manager to XYCAR control.</desc>
   <defs>
     <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#72808a"/></marker>
     <style>
@@ -15,25 +15,29 @@
   <rect x="54" y="166" width="150" height="72" rx="5" class="soft"/>
   <text x="129" y="197" text-anchor="middle" class="label">LiDAR</text><text x="129" y="218" text-anchor="middle" class="small">scan / clusters</text>
 
-  <rect x="270" y="54" width="190" height="72" rx="5" class="box"/>
-  <text x="365" y="84" text-anchor="middle" class="label">Lane Perception</text><text x="365" y="105" text-anchor="middle" class="small">YOLO + OpenCV → center curve</text>
-  <rect x="270" y="142" width="190" height="72" rx="5" class="box"/>
-  <text x="365" y="172" text-anchor="middle" class="label">Object Perception</text><text x="365" y="193" text-anchor="middle" class="small">LiDAR candidates + YOLO check</text>
-  <rect x="270" y="230" width="190" height="72" rx="5" class="box"/>
-  <text x="365" y="260" text-anchor="middle" class="label">Cone Path</text><text x="365" y="281" text-anchor="middle" class="small">left/right clusters → midpoint</text>
+  <rect x="270" y="40" width="190" height="64" rx="5" class="box"/>
+  <text x="365" y="67" text-anchor="middle" class="label">Lane Perception</text><text x="365" y="87" text-anchor="middle" class="small">YOLO + OpenCV → center curve</text>
+  <rect x="270" y="116" width="190" height="64" rx="5" class="box"/>
+  <text x="365" y="143" text-anchor="middle" class="label">Object Perception</text><text x="365" y="163" text-anchor="middle" class="small">LiDAR candidates + YOLO check</text>
+  <rect x="270" y="192" width="190" height="64" rx="5" class="accent"/>
+  <text x="365" y="219" text-anchor="middle" class="label">Cone Entry Confirmation</text><text x="365" y="239" text-anchor="middle" class="small">Camera + LiDAR</text>
+  <rect x="270" y="268" width="190" height="64" rx="5" class="box"/>
+  <text x="365" y="295" text-anchor="middle" class="label">LiDAR Cone Path</text><text x="365" y="315" text-anchor="middle" class="small">left/right cones → midpoint/path</text>
 
-  <path d="M204 104H270" class="line"/><path d="M204 104C236 104 236 178 270 178" class="line"/><path d="M204 202H270" class="line"/><path d="M204 202C238 202 236 266 270 266" class="line"/>
+  <path d="M204 104C236 104 236 72 270 72" class="line"/><path d="M204 104C236 104 236 148 270 148" class="line"/><path d="M204 104C236 104 236 224 270 224" class="line"/>
+  <path d="M204 202C236 202 236 148 270 148" class="line"/><path d="M204 202C236 202 236 224 270 224" class="line"/><path d="M204 202C236 202 236 300 270 300" class="line"/>
 
   <rect x="526" y="124" width="174" height="108" rx="5" class="accent"/>
   <text x="613" y="162" text-anchor="middle" class="label">Mission Manager</text>
   <text x="613" y="185" text-anchor="middle" class="small">mission state</text><text x="613" y="204" text-anchor="middle" class="small">command selection</text>
-  <path d="M460 90C494 90 494 151 526 151" class="line"/><path d="M460 178H526" class="line"/><path d="M460 266C494 266 494 205 526 205" class="line"/>
+  <path d="M460 72C494 72 494 151 526 151" class="line"/><path d="M460 148H526" class="line"/><path d="M460 224C494 224 494 205 526 205" class="line"/>
 
   <rect x="756" y="84" width="150" height="72" rx="5" class="box"/>
   <text x="831" y="114" text-anchor="middle" class="label">Stanley</text><text x="831" y="135" text-anchor="middle" class="small">lane path tracking</text>
   <rect x="756" y="180" width="150" height="72" rx="5" class="box"/>
   <text x="831" y="210" text-anchor="middle" class="label">Pure Pursuit</text><text x="831" y="231" text-anchor="middle" class="small">cone path tracking</text>
   <path d="M700 161C727 161 727 120 756 120" class="line"/><path d="M700 195C727 195 727 216 756 216" class="line"/>
+  <path d="M460 300C620 300 650 216 756 216" class="line"/>
 
   <rect x="756" y="292" width="150" height="74" rx="5" class="result"/>
   <text x="831" y="322" text-anchor="middle" class="label">XYCAR Control</text><text x="831" y="344" text-anchor="middle" class="small">speed + steering command</text>

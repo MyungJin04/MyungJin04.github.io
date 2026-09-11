@@ -17,10 +17,10 @@ next_label: Obstacle Detection
 
 simulation과 초기 실내 주행에서는 OpenCV 차선 결과를 기본으로 사용하고, 차선 중심이 크게 이동할 때 YOLO 결과를 보조로 적용했다. 대회장 바닥에서는 형광등 반사가 차선과 비슷한 밝은 선으로 나타났고, OpenCV와 YOLO 결과가 모두 순간적으로 이동하거나 끊기는 구간이 생겼다.
 
-<!-- Source: 룩어헤드 변함 v1 1210 화면.mp4; trim: 00:18–00:28; crop: lane perception window; original preserved. -->
+<!-- Source: drive_diag_20260821_162803 rosbag; source time: 00:01:33.800–00:01:36.200; actual Camera, YOLO detections, center path, and control topics. -->
 <figure class="project-media">
-  {% include project_video.liquid src="/assets/video/projects/kookmin/lane_perception_debug.mp4" poster="/assets/img/projects/kookmin/lane_perception_debug_poster.webp" aria_label="Recorded lane perception and target path debugging under indoor lighting" controls=true %}
-  <figcaption><strong>Recorded debugging view.</strong> 실내 조명 조건에서 기록한 전방 Camera, 차선 중심점과 주행 상태. 원본 desktop 녹화에서 관련 창만 crop했다.</figcaption>
+  {% include project_video.liquid src="/assets/video/projects/kookmin/lane_perception_debug.mp4" poster="/assets/img/projects/kookmin/lane_perception_debug_poster.webp" aria_label="Stable YOLO lane perception during an actual indoor vehicle run" controls=true %}
+  <figcaption><strong>Offline rosbag replay analysis.</strong> 통합 주행의 `LANE` 구간에서 기록한 전방 Camera, YOLO 중앙선 검출과 최종 center path.</figcaption>
 </figure>
 
 ## Compare the Failure Frames
