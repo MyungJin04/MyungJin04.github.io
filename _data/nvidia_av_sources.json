@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "title": "The ChatGPT Moment for Autonomous Driving",
+    "url": "https://www.nvidia.com/en-us/on-demand/session/alpamayo26-alpa01/"
+  },
+  {
+    "id": 2,
+    "title": "Building Autonomous Vehicles That Reason with Alpamayo",
+    "url": "https://developer.nvidia.com/blog/building-autonomous-vehicles-that-reason-with-nvidia-alpamayo/"
+  },
+  {
+    "id": 3,
+    "title": "Inside Alpamayo 1: Making Autonomous Vehicles Reason",
+    "url": "https://www.youtube.com/watch?v=V9E4GX5vaC8"
+  },
+  {
+    "id": 4,
+    "title": "Alpamayo 2 Super: The Open Reasoning Model for Robotaxis",
+    "url": "https://www.youtube.com/watch?v=kJRVwaYwvt0"
+  },
+  {
+    "id": 5,
+    "title": "Training at Scale: The Physical AI Dataset",
+    "url": "https://www.nvidia.com/en-us/on-demand/session/alpamayo26-alpa02/"
+  },
+  {
+    "id": 6,
+    "title": "Autonomous Driving With Reasoning Models",
+    "url": "https://www.nvidia.com/en-us/on-demand/session/alpamayo26-alpa03/"
+  },
+  {
+    "id": 7,
+    "title": "Safety in the Loop: Open Datasets and Models for Safe AVs",
+    "url": "https://www.youtube.com/watch?v=-5jfeuv2Lkw"
+  },
+  {
+    "id": 8,
+    "title": "Closing the Development Loop: Simulation and Training With AlpaSim and AlpaGym",
+    "url": "https://www.nvidia.com/en-us/on-demand/session/alpamayo26-alpa04/"
+  },
+  {
+    "id": 9,
+    "title": "How to Post-Train AV Models in Closed-Loop with Alpamayo",
+    "url": "https://developer.nvidia.com/blog/how-to-post-train-autonomous-vehicle-models-in-closed-loop-with-nvidia-alpamayo/"
+  },
+  {
+    "id": 10,
+    "title": "From Research to Production: How Alpamayo Accelerates AV Development",
+    "url": "https://www.nvidia.com/en-us/on-demand/session/gtc26-s81779/"
+  },
+  {
+    "id": 11,
+    "title": "Inside the Alpamayo Ecosystem: Partners, Open Research, and What's Next",
+    "url": "https://www.nvidia.com/en-us/on-demand/session/alpamayo26-alpa06/"
+  },
+  {
+    "id": 12,
+    "title": "How Open World Models Are Powering Breakthroughs in Physical AI",
+    "url": "https://www.nvidia.com/en-us/on-demand/session/gtc26-s81667/"
+  },
+  {
+    "id": 13,
+    "title": "Simplify End-to-End AV Development with Cosmos World Foundation Models",
+    "url": "https://developer.nvidia.com/blog/simplify-end-to-end-autonomous-vehicle-development-with-new-nvidia-cosmos-world-foundation-models/"
+  },
+  {
+    "id": 14,
+    "title": "Advancing Autonomous Vehicles With World Models",
+    "url": "https://www.nvidia.com/en-us/on-demand/session/gtc26-s82446/"
+  },
+  {
+    "id": 15,
+    "title": "Accelerating AV Simulation with Neural Reconstruction and World Foundation Models",
+    "url": "https://developer.nvidia.com/blog/accelerating-av-simulation-with-neural-reconstruction-and-world-foundation-models/"
+  },
+  {
+    "id": 16,
+    "title": "How to Enhance 3D Gaussian Reconstruction Quality for Simulation",
+    "url": "https://developer.nvidia.com/blog/how-to-enhance-3d-gaussian-reconstruction-quality-for-simulation/"
+  },
+  {
+    "id": 17,
+    "title": "Advancing Level 4 Autonomy: Scalable, Safe AVs and Robotaxis",
+    "url": "https://www.youtube.com/watch?v=vUBytUceIjM"
+  },
+  {
+    "id": 18,
+    "title": "How AI Helps Autonomous Vehicles See Outside the Box",
+    "url": "https://www.youtube.com/watch?v=HS1wV9NMLr8"
+  },
+  {
+    "id": 19,
+    "title": "How Simulation Enables Safer Autonomous Vehicles",
+    "url": "https://www.nvidia.com/en-us/on-demand/session/ces25-foretellix/"
+  },
+  {
+    "id": 20,
+    "title": "Safety in the Loop: Scaling AV Safety Through Industry Standards",
+    "url": "https://www.nvidia.com/en-us/on-demand/session/alpamayo26-s1/"
+  },
+  {
+    "id": 21,
+    "title": "Accelerate AV Development with the DRIVE AGX Thor Developer Kit",
+    "url": "https://developer.nvidia.com/blog/accelerate-autonomous-vehicle-development-with-the-nvidia-drive-agx-thor-developer-kit/"
+  },
+  {
+    "id": 22,
+    "title": "Build Physical AI with Edge-First LLMs for Autonomous Vehicles",
+    "url": "https://developer.nvidia.com/blog/build-next-gen-physical-ai-with-edge%E2%80%91first-llms-for-autonomous-vehicles-and-robotics/"
+  }
+]

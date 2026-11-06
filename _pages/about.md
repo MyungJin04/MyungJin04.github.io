@@ -58,6 +58,16 @@ I am currently interested in learning-based decision and control, multimodal per
   </div>
 </section>
 
+<section aria-labelledby="research-notes-heading">
+  <div class="section-heading">
+    <div>
+      <h2 id="research-notes-heading">Research Notes</h2>
+      <p class="page-intro">NVIDIA 공개 자료 22개를 바탕으로 추론형 주행 모델, 폐루프 평가, 차량 탑재 과정을 정리했습니다.</p>
+    </div>
+    <a href="{{ '/research-notes/nvidia-autonomous-driving/' | relative_url }}">Read the study notes →</a>
+  </div>
+</section>
+
 <section class="current-project" aria-labelledby="current-project-heading">
   <h2 id="current-project-heading">Current Project</h2>
   {% assign current_project = site.projects | where: "current_featured", true | first %}

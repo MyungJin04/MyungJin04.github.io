@@ -993,3 +993,104 @@ body {
     transition: none !important;
   }
 }
+
+.research-note-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0 0 1.8rem;
+
+  a {
+    border: 1px solid $portfolio-line;
+    border-radius: 7px;
+    color: $portfolio-accent;
+    padding: 0.38rem 0.68rem;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible,
+    &[aria-current="page"] {
+      background: $portfolio-accent-soft;
+      border-color: $portfolio-accent;
+    }
+  }
+}
+
+.research-note-body {
+  overflow-wrap: anywhere;
+
+  h2 {
+    scroll-margin-top: 5.4rem;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th,
+  td {
+    border-bottom: 1px solid $portfolio-line;
+    padding: 0.65rem 0.45rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  td:nth-child(2) {
+    white-space: nowrap;
+  }
+}
+
+.research-resource-index {
+  background: $portfolio-soft;
+  border-left: 3px solid $portfolio-accent;
+  margin: 1.4rem 0 1.8rem;
+  padding: 0.8rem 1rem;
+
+  p {
+    margin: 0;
+  }
+}
+
+.research-note-figure {
+  background: $portfolio-soft;
+  border: 1px solid $portfolio-line;
+  border-radius: 10px;
+  margin: 1.25rem 0;
+  overflow: hidden;
+
+  img {
+    background: #fff;
+    display: block;
+    max-height: 465px;
+    object-fit: contain;
+    width: 100%;
+  }
+
+  figcaption {
+    color: $portfolio-muted;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    padding: 0.7rem 0.9rem;
+  }
+
+  figcaption span {
+    display: block;
+    margin-top: 0.2rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .portfolio-site-nav {
+    gap: 0.35rem;
+    padding-inline: 0.55rem;
+
+    ul {
+      gap: 0.5rem;
+    }
+
+    a {
+      font-size: 0.75rem;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{% assign media_path = include.file | prepend: '/assets/img/research/nvidia-av/' | relative_url %}
+<figure class="research-note-figure">
+  <a href="{{ media_path }}">
+    <img src="{{ media_path }}" alt="{{ include.alt | escape }}" loading="lazy" decoding="async">
+  </a>
+  <figcaption>{{ include.caption | escape }}
+    {% if include.source_id %}
+      {% assign source = site.data.nvidia_av_sources | where: "id", include.source_id | first %}
+      <span>출처 <a href="{{ source.url }}">NVIDIA 자료 {{ include.source_id }}</a></span>
+    {% else %}
+      <span>학습 노트의 설명용 도식</span>
+    {% endif %}
+  </figcaption>
+</figure>

@@ -1,0 +1,46 @@
+---
+layout: default
+---
+<div class="post project-detail research-note" lang="ko">
+  {% if page.chapter %}
+    <a class="project-back" href="{{ '/research-notes/nvidia-autonomous-driving/' | relative_url }}">← 학습 노트 개요</a>
+  {% endif %}
+  <header class="project-header">
+    <div class="project-header__copy">
+      <div class="project-kicker">
+        <span>Research Notes</span>
+        {% if page.chapter %}<span class="status-badge">{{ page.chapter }} / 5</span>{% endif %}
+      </div>
+      <h1>{{ page.title }}</h1>
+      <p class="project-subtitle">{{ page.subtitle }}</p>
+    </div>
+  </header>
+
+  <nav class="research-note-nav" aria-label="NVIDIA 자율주행 학습 노트 목차">
+    {% for item in site.data.nvidia_av_chapters %}
+      <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
+    {% endfor %}
+  </nav>
+
+  <article class="project-body research-note-body">
+    {{ content }}
+  </article>
+
+  {% if page.chapter %}
+    {% if page.chapter > 1 %}
+      {% assign prev_index = page.chapter | minus: 2 %}
+      {% assign prev = site.data.nvidia_av_chapters[prev_index] %}
+    {% endif %}
+    {% if page.chapter < 5 %}
+      {% assign next = site.data.nvidia_av_chapters[page.chapter] %}
+    {% endif %}
+    <nav class="chapter-pagination" aria-label="이전 및 다음 장">
+      {% if page.chapter > 1 %}
+        <a href="{{ prev.url | relative_url }}"><small>이전 장</small><span>← {{ prev.title }}</span></a>
+      {% endif %}
+      {% if next %}
+        <a class="chapter-pagination__next" href="{{ next.url | relative_url }}"><small>다음 장</small><span>{{ next.title }} →</span></a>
+      {% endif %}
+    </nav>
+  {% endif %}
+</div>
