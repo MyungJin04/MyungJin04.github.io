@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 930 246" role="img" aria-labelledby="title desc">
+<title id="title">E2E 자율주행 개발 흐름</title><desc id="desc">실주행과 합성 데이터에서 정책을 학습하고 폐루프 평가 및 차량 검증을 거쳐 실패를 데이터 선별에 반영한다.</desc>
+<defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0l7 3.5L0 7z" fill="#245a73"/></marker></defs>
+<style>text{font-family:system-ui,"Malgun Gothic",sans-serif;fill:#172b39}.title{font-size:22px;font-weight:700}.step{font-size:19px;font-weight:700}.sub{font-size:14px;fill:#435c69}.box{fill:#fff;stroke:#cbdae1}.arrow{fill:none;stroke:#245a73;stroke-width:2}</style>
+<rect width="930" height="246" rx="15" fill="#f5f8fa"/><text x="24" y="36" class="title">E2E 자율주행 개발 흐름</text>
+<rect x="24" y="59" width="187" height="82" rx="11" class="box"/><text x="40" y="92" class="step">데이터 준비</text><text x="40" y="120" class="sub">실주행 · Cosmos · NuRec</text>
+<path d="M217 100h33" class="arrow" marker-end="url(#arrow)"/><rect x="256" y="59" width="187" height="82" rx="11" class="box"/><text x="272" y="92" class="step">주행 정책 학습</text><text x="272" y="120" class="sub">Alpamayo VLA · AlpaGym</text>
+<path d="M449 100h33" class="arrow" marker-end="url(#arrow)"/><rect x="488" y="59" width="187" height="82" rx="11" class="box"/><text x="504" y="92" class="step">폐루프 평가</text><text x="504" y="120" class="sub">AlpaSim · 시나리오 시험</text>
+<path d="M681 100h33" class="arrow" marker-end="url(#arrow)"/><rect x="720" y="59" width="187" height="82" rx="11" class="box"/><text x="736" y="92" class="step">차량 통합과 검증</text><text x="736" y="120" class="sub">DRIVE AV · DRIVE AGX</text>
+<path d="M814 145v37H120v-36" class="arrow" marker-end="url(#arrow)"/><text x="467" y="214" text-anchor="middle" class="sub">실패 장면을 선별해 다음 데이터와 시험에 반영</text>
+</svg>

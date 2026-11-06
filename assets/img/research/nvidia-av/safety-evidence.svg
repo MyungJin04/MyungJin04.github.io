@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 930 173" role="img" aria-labelledby="title desc">
+<title id="title">차량 안전을 뒷받침하는 검증 흐름</title><desc id="desc">운행 조건과 위험을 정해 요구사항을 만들고 시험 결과를 안전 논증에 연결한다.</desc>
+<defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0l7 3.5L0 7z" fill="#245a73"/></marker></defs>
+<style>text{font-family:system-ui,"Malgun Gothic",sans-serif;fill:#172b39}.title{font-size:22px;font-weight:700}.step{font-size:19px;font-weight:700}.sub{font-size:14px;fill:#435c69}.box{fill:#fff;stroke:#cbdae1}.arrow{fill:none;stroke:#245a73;stroke-width:2}</style>
+<rect width="930" height="173" rx="15" fill="#f5f8fa"/><text x="24" y="36" class="title">차량 안전을 뒷받침하는 검증 흐름</text>
+<rect x="24" y="59" width="187" height="82" rx="11" class="box"/><text x="40" y="92" class="step">운행 조건 정의</text><text x="40" y="120" class="sub">지역 · 기상 · 도로 · 속도</text>
+<path d="M217 100h33" class="arrow" marker-end="url(#arrow)"/><rect x="256" y="59" width="187" height="82" rx="11" class="box"/><text x="272" y="92" class="step">위험과 요구사항</text><text x="272" y="120" class="sub">감지 · 판단 · 대응 기준</text>
+<path d="M449 100h33" class="arrow" marker-end="url(#arrow)"/><rect x="488" y="59" width="187" height="82" rx="11" class="box"/><text x="504" y="92" class="step">시나리오 시험</text><text x="504" y="120" class="sub">시뮬레이션 · 차량 시험</text>
+<path d="M681 100h33" class="arrow" marker-end="url(#arrow)"/><rect x="720" y="59" width="187" height="82" rx="11" class="box"/><text x="736" y="92" class="step">증거 검토</text><text x="736" y="120" class="sub">추적성 · 안전 논증</text>
+</svg>
